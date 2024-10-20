@@ -94,14 +94,26 @@
     <div class="modal" id="zamokModal">
         <div class="modal-content" id="zamok">
             <span class="close">&times;</span>
-
-            <div class="header-inventary">
-                <img src="img/inventory-left.png" alt="Инвентарь" class="img-inventary">
-                <h2>Инвентарь</h2>
-                <img src="img/inventory-right.png" alt="Инвентарь" class="img-inventary">
+            <div class="header-zamok">               
+                <h2>Наш замок</h2>                
+            </div>
+            <hr>
+            <div class="zamok-left">
+                <label for="zamok-level">Уровень замка: </label>
+                <label  for="zamok-level" id="zamok-level">1</label>
+                <label  for="zamok-strong">Сила замка: </label>
+                <label  id="zamok-strong" class="zamok-strong">0</label>
+                <label  for="zamok-armor">Броня замка: </label>
+                <label id="zamok-armor" class="zamok-armor"></label>
+            </div>
+            <hr class="vertical-line">
+            <div class="zamok-right">
+                <img  src="img/" alt="Замок" class="zamok-img">
+                <label  for="zamok-name">Название замка</label>              
             </div>
 
-            <hr class="inventary-line">
+
+
 
         </div>
     </div>
@@ -433,6 +445,8 @@
         setupModal("joinAlnsModal", "joinAlnsModalBtn");
         setupModal("inventaryModal", "inventaryBtn"); // Инвентарь
         setupModal("shopModal", "shopBtn"); // Лавка
+        setupModal("zamokModal", "zamokBtn"); // Лавка
+
 
         // Обработчик для кнопки "Создать альянс"
         document.getElementById("registrAlnsModalBtn").onclick = function (event) {
