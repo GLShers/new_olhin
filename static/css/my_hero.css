@@ -110,7 +110,6 @@ body {
 
 /* Стили для кнопок персонажей */
 .character-button {
-  pointer-events: auto;
   position: relative;
   background-color: rgba(255, 255, 255, 0.2);
   border: 2px solid rgb(219, 198, 251);
