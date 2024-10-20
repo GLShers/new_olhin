@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    <!--jjnjkn-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,6 +18,7 @@
                 <a href="#" id="inventaryBtn">Инвентарь</a> <!-- Кнопка для инвентаря -->
                 <a href="#" id="shopBtn">Лавка</a>
                 <a href="#" id="allianceBtn">Альянс</a>
+                <a href="#" id="zamokBtn">Замок</a>
                 <a href="#">Помощь</a>
             </nav>
         </div>
@@ -45,9 +46,9 @@
                     <button class="inventory-btn" id="btn-defense">Защита</button>
                     <button class="inventory-btn" id="btn-weapon">Оружие</button>
                 </div>
-            
+
                 <div class="vertical-line"></div>
-            
+
                 <div class="inventory-right">
                     <div id="defense-inventory" class="inventory-category">
                         <img src="img/item-defense1.png" alt="Иконка защиты" class="inventory-item">
@@ -78,7 +79,6 @@
                 <div class="large-photo-container">
                     <img src="img/chempion.png" alt="Большая фотография" class="large-photo">
                 </div>
-            
                 <div class="small-photos-container">
                     <img src="img/free-icon-gold-ingot-10021774.png" alt="Маленькая фотография 1" class="small-photo">
                     <img src="img/free-icon-gold-ingot-10021774.png" alt="Маленькая фотография 2" class="small-photo">
@@ -86,7 +86,21 @@
                     <img src="img/free-icon-gold-ingot-10021774.png" alt="Маленькая фотография 4" class="small-photo">
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно Замок -->
+    <div class="modal" id="zamokModal">
+        <div class="modal-content" id="zamok">
+            <span class="close">&times;</span>
+
+            <div class="header-inventary">
+                <img src="img/inventory-left.png" alt="Инвентарь" class="img-inventary">
+                <h2>Инвентарь</h2>
+                <img src="img/inventory-right.png" alt="Инвентарь" class="img-inventary">
             </div>
+
+            <hr class="inventary-line">
 
         </div>
     </div>
@@ -94,64 +108,96 @@
 
 
 
-
-
-
-    <!-- Модальное окно Альянса -->
+    <!-- Всплывающее окно Альянса -->
     <div id="allianceModal" class="modal">
         <div class="modal-content" id="alns">
             <span class="close">&times;</span>
             <div class="alns-header">
-                <img src="img/1515044126_preview_465f9307bf1b8-edited-free (carve.photos).png" class="gerb">
+                <img src="img/1515044126_preview_465f9307bf1b8-edited-free (carve.photos).png" alt="герб" class="gerb">
                 <h2>Наш альянс</h2>
-                <img src="img/1515044126_preview_465f9307bf1b8-edited-free (carve.photos).png" alt="gerb" class="gerb">
+                <img src="img/1515044126_preview_465f9307bf1b8-edited-free (carve.photos).png" alt="герб" class="gerb">
             </div>
             <hr>
             <div class="search-user">
+                <a href="#" class="registr-alns" id="registrAlnsModalBtn">
+                    <span class="text-alns">Создать</span>
+                </a>
+                <!-- Всплывающее окно создания альянса -->
+                <div id="registrAlnsModal" class="modal">
+                    <div class="modal-content" id="registrAlns">
+                        <div class="window-registrAlns">
+                            <span class="close">&times;</span>
+                            <div class="registrAlns-header">
+                                <h2>Создать альянс</h2>
+                            </div>
+                            <div class="main-registrAlns">
+                                <h4>Введите название вашего альянса</h4>
+                                <input type="text" id="nameAlns" name="nameAlns" placeholder="Название альянса"
+                                    class="name-registrAlns">
+                                <h4>Введите ID для создания альянса</h4>
+                                <input type="text" id="ID" name="ID" placeholder="ID должен состоять из 8 цифр"
+                                    class="ID-registrAlns" maxlength="8">
+                                <div class="button-container">
+                                    <a href="#" class="registr-alns" id="createButton"
+                                        style="pointer-events: none; opacity: 0.5;">
+                                        <span class="text-alns">Создать</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <form>
                     <input type="text" id="name" name="name" placeholder="Введите имя пользователя"
                         class="user-name-input">
                 </form>
-                <!-- Замена <div> на <button> для правильной семантики -->
                 <a href="#" class="search-button">
                     <img src="img/free-icon-magnifying-glass-8437963-no-bg-preview (carve.photos).png" alt="search"
                         class="button-search-img">
                 </a>
+                <a href="#" class="join-alns" id="joinAlnsModalBtn">
+                    <span class="text-alns">Вступить</span>
+                </a>
+<!--Копка Покинуть альянс-->
+                <!--<a href="#" class="exit-alns" id="exitAlnsModalBtn">
+                    <span class="text-alns">Покинуть</span>
+                </a>-->
+
+
+                <!-- Всплывающее окно вступления в альянс -->
+                <div id="joinAlnsModal" class="modal">
+                    <div class="modal-content" id="joinAlns">
+                        <div class="window-joinAlns">
+                            <span class="close">&times;</span>
+                            <div class="joinAlns-header">
+                                <h2>Вступить альянс</h2>
+                            </div>
+                            <div class="main-joinrAlns">
+                                <h4>Введите ID для вступления в альянс</h4>
+                                <input type="text" id="joinID" name="ID" placeholder="ID должен состоять из 8 цифр"
+                                    class="ID-registrAlns" maxlength="8">
+                                <div class="button-container">
+                                    <a href="#" class="join-alns" id="joinButton"
+                                        style="pointer-events: none; opacity: 0.5;">
+                                        <span class="text-alns">Вступить</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="main-alns">
-                <a><button class="user">
-                        <img src="img/chempion.png" alt="user" id="user-img">
-                        <label class="user-name">
-                            <h2>Смирнов Артём Михайлович</h2>
-                        </label>
-                    </button></a>
-            </div>
-            <div class="main-alns">
-                <a><button class="user">
-                        <img src="img/chempion.png" alt="user" id="user-img">
-                        <label class="user-name">
-                            <h2>Смирнов Артём Михайлович</h2>
-                        </label>
-                    </button></a>
-            </div>
-            <div class="main-alns">
-                <a><button class="user">
-                        <img src="img/chempion.png" alt="user" id="user-img">
-                        <label class="user-name">
-                            <h2>Смирнов Артём Михайлович</h2>
-                        </label>
-                    </button></a>
-            </div>
-            <div class="main-alns">
-                <a><button class="user">
-                        <img src="img/chempion.png" alt="user" id="user-img">
-                        <label class="user-name">
-                            <h2>Смирнов Артём Михайлович</h2>
-                        </label>
-                    </button></a>
+                <button class="user">
+                    <img src="img/chempion.png" alt="user" id="user-img">
+                    <label class="user-name">
+                        <h2>Смирнов Артём Михайлович</h2>
+                    </label>
+                </button>
             </div>
         </div>
     </div>
+
 
 
     <!-- Модальное окно Лавки -->
@@ -225,10 +271,12 @@
             <div class="details">
                 <div class="name">logo2355</div>
                 <div class="level">@logo2355 - Уровень 1 Воин</div>
-                <div class="strong">Сила - 5 <pre></pre>Опыт: </div>
+                <div class="strong">Сила - 5
+                    <pre></pre>Опыт:
+                </div>
                 <div class="progress">
                     <div class="bar">
-                        <div class="fill mana" id="exp" style="width: 60%;"></div>
+                        <div class="fill mana" id="exp" style="width: 0%;"></div>
                     </div>
                     <span>0 / 25</span>
                 </div>
@@ -352,36 +400,97 @@
 
     </script>
 
-    <script>
-        // Обработчики модальных окон
-        function setupModal(modalId, buttonId) {
-            var modal = document.getElementById(modalId);
-            var btn = document.getElementById(buttonId);
-            var closeBtn = modal.querySelector(".close");
+<script>
+    // Обработчики модальных окон
+    function setupModal(modalId, buttonId) {
+        var modal = document.getElementById(modalId);
+        var btn = document.getElementById(buttonId);
+        var closeBtn = modal.querySelector(".close");
 
-            // Открытие модального окна
-            btn.onclick = function () {
-                modal.classList.add("show");
-            };
+        // Открытие модального окна
+        btn.onclick = function (event) {
+            event.preventDefault();
+            modal.classList.add("show");
+        };
 
-            // Закрытие модального окна при нажатии на крестик
-            closeBtn.onclick = function () {
+        // Закрытие модального окна при нажатии на крестик
+        closeBtn.onclick = function () {
+            modal.classList.remove("show");
+        };
+
+        // Закрытие модального окна при нажатии вне окна
+        window.onclick = function (event) {
+            if (event.target === modal) {
                 modal.classList.remove("show");
-            };
+            }
+        };
+    }
 
-            // Закрытие модального окна при нажатии вне окна
-            window.onclick = function (event) {
-                if (event.target == modal) {
-                    modal.classList.remove("show");
-                }
-            };
+    // Настройка всех модальных окон
+    setupModal("allianceModal", "allianceBtn");
+    setupModal("registrAlnsModal", "registrAlnsModalBtn");
+    setupModal("joinAlnsModal", "joinAlnsModalBtn");
+
+    // Обработчик для кнопки "Создать альянс"
+    document.getElementById("registrAlnsModalBtn").onclick = function (event) {
+        event.preventDefault();
+        document.getElementById("registrAlnsModal").classList.add("show"); // Открываем "Создать альянс"
+    };
+
+    // Обработчик для кнопки "Создать" в окне регистрации альянса
+    document.getElementById("createButton").onclick = function (event) {
+        event.preventDefault();
+        document.getElementById("registrAlnsModal").classList.remove("show"); // Закрываем окно регистрации альянса
+    };
+
+    // Проверка для создания альянса
+    document.getElementById("ID").addEventListener("input", function () {
+        this.value = this.value.replace(/[^0-9]/g, '');
+        checkCreateInput();
+    });
+
+    document.getElementById("nameAlns").addEventListener("input", checkCreateInput);
+
+    function checkCreateInput() {
+        const nameAlns = document.getElementById("nameAlns").value;
+        const ID = document.getElementById("ID").value;
+        const createButton = document.getElementById("createButton");
+
+        if (nameAlns.trim() !== "" && ID.length === 8) {
+            createButton.style.pointerEvents = 'auto';
+            createButton.style.opacity = 1;
+        } else {
+            createButton.style.pointerEvents = 'none';
+            createButton.style.opacity = 0.5;
         }
+    }
 
-        // Настройка всех модальных окон
-        setupModal("inventaryModal", "inventaryBtn"); // Инвентарь
-        setupModal("allianceModal", "allianceBtn"); // Альянс
-        setupModal("shopModal", "shopBtn"); // Лавка
-    </script>
+    // Обработчик для кнопки "Вступить"
+    document.getElementById("joinButton").onclick = function (event) {
+        event.preventDefault();
+        document.getElementById("joinAlnsModal").classList.remove("show"); // Закрываем окно вступления в альянс
+    };
+
+    // Проверка для вступления в альянс
+    document.getElementById("joinID").addEventListener("input", function () {
+        this.value = this.value.replace(/[^0-9]/g, '');
+        checkJoinInput();
+    });
+
+    function checkJoinInput() {
+        const ID = document.getElementById("joinID").value;
+        const joinButton = document.getElementById("joinButton");
+
+        if (ID.length === 8) {
+            joinButton.style.pointerEvents = 'auto';
+            joinButton.style.opacity = 1;
+        } else {
+            joinButton.style.pointerEvents = 'none';
+            joinButton.style.opacity = 0.5;
+        }
+    }
+</script>
+
 
 </body>
 
