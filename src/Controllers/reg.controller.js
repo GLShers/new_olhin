@@ -92,6 +92,14 @@ router.get('/api/get-user-hero', async (req, res) => {
     res.json({ success: false, message: 'Ошибка получения героя' });
   }
 });
+router.get('/api/get-user-data', async (req, res) => {
+  const data = await regService.get_user_data(req);
+  if (data) {
+    res.json({ success: true, dataa: data });  // Отправляем JSON-ответ
+  } else {
+    res.json({ success: false, message: 'Ошибка получения героя' });
+  }
+});
 
 
 

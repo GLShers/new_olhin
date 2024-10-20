@@ -282,7 +282,7 @@
         <div class="profile">
             <img id="im" alt="Profile Picture" src="default.png" />
             <div class="details">
-                <div class="name">logo2355</div>
+                <span class="name" id="namee">logo2355</span>
                 <span id="userId">Загрузка...</span>
                 <div class="level">@logo2355 - Уровень 1 Воин</div>
                 <div class="strong">Сила - 5
@@ -415,6 +415,23 @@
     </script>
 
     <script>
+        fetch('/api/get-user-data')
+            .then(response => response.json())  // Преобразуем ответ в JSON
+            .then(data => {
+            if (data.success) {
+                // Заменяем текст в элементе с id "name"
+                document.getElementById('namee').textContent = data.dataa;
+                console.log('Данные пользователя:', data.dataa);  // Выводим данные в консоль
+            } else {
+                console.error('Ошибка при получении данных пользователя:', data.message);
+            }
+            })
+            .catch(error => {
+            console.error('Ошибка при выполнении запроса:', error);
+            });
+
+
+
         fetch('/api/get-user-hero')
             .then(response => response.json())  // Преобразуем ответ в JSON
             .then(data => {
