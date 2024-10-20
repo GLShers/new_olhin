@@ -22,6 +22,7 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.use(express.json());
 
 
+
 app.use('/', regRouter);
 
 app.listen(port, () => {

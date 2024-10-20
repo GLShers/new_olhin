@@ -34,17 +34,14 @@ class Register {
         if (!ress) {
           return { success: false, message: 'Пользователь не найден' };
         }
-        console.log(ress.id);
-        console.log(req.body.email);
-        if (ress.password === req.body.password) {
-          return { success: true, message: 'Пользователь найден' };
+
+        if (ress.password == req.body.password) {
+          console.log('ehf')
+          return ress.id;
         } else {
           return { success: false, message: 'Неверный пароль' };
         }
-        
 
-        console.log(ress.id);
-        console.log(req.body.email);
       }
        catch (error) {
       console.error('Ошибка в запросе к базе данных:', error);
