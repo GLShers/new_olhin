@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-    <!--jjnjkn-->
+<!--jjnjkn-->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -158,7 +159,7 @@
                 <a href="#" class="join-alns" id="joinAlnsModalBtn">
                     <span class="text-alns">Вступить</span>
                 </a>
-<!--Копка Покинуть альянс-->
+                <!--Копка Покинуть альянс-->
                 <!--<a href="#" class="exit-alns" id="exitAlnsModalBtn">
                     <span class="text-alns">Покинуть</span>
                 </a>-->
@@ -400,96 +401,98 @@
 
     </script>
 
-<script>
-    // Обработчики модальных окон
-    function setupModal(modalId, buttonId) {
-        var modal = document.getElementById(modalId);
-        var btn = document.getElementById(buttonId);
-        var closeBtn = modal.querySelector(".close");
+    <script>
+        // Обработчики модальных окон
+        function setupModal(modalId, buttonId) {
+            var modal = document.getElementById(modalId);
+            var btn = document.getElementById(buttonId);
+            var closeBtn = modal.querySelector(".close");
 
-        // Открытие модального окна
-        btn.onclick = function (event) {
-            event.preventDefault();
-            modal.classList.add("show");
-        };
+            // Открытие модального окна
+            btn.onclick = function (event) {
+                event.preventDefault();
+                modal.classList.add("show");
+            };
 
-        // Закрытие модального окна при нажатии на крестик
-        closeBtn.onclick = function () {
-            modal.classList.remove("show");
-        };
-
-        // Закрытие модального окна при нажатии вне окна
-        window.onclick = function (event) {
-            if (event.target === modal) {
+            // Закрытие модального окна при нажатии на крестик
+            closeBtn.onclick = function () {
                 modal.classList.remove("show");
-            }
+            };
+
+            // Закрытие модального окна при нажатии вне окна
+            window.onclick = function (event) {
+                if (event.target === modal) {
+                    modal.classList.remove("show");
+                }
+            };
+        }
+
+        // Настройка всех модальных окон
+        setupModal("allianceModal", "allianceBtn");
+        setupModal("registrAlnsModal", "registrAlnsModalBtn");
+        setupModal("joinAlnsModal", "joinAlnsModalBtn");
+        setupModal("inventaryModal", "inventaryBtn"); // Инвентарь
+        setupModal("shopModal", "shopBtn"); // Лавка
+
+        // Обработчик для кнопки "Создать альянс"
+        document.getElementById("registrAlnsModalBtn").onclick = function (event) {
+            event.preventDefault();
+            document.getElementById("registrAlnsModal").classList.add("show"); // Открываем "Создать альянс"
         };
-    }
 
-    // Настройка всех модальных окон
-    setupModal("allianceModal", "allianceBtn");
-    setupModal("registrAlnsModal", "registrAlnsModalBtn");
-    setupModal("joinAlnsModal", "joinAlnsModalBtn");
+        // Обработчик для кнопки "Создать" в окне регистрации альянса
+        document.getElementById("createButton").onclick = function (event) {
+            event.preventDefault();
+            document.getElementById("registrAlnsModal").classList.remove("show"); // Закрываем окно регистрации альянса
+        };
 
-    // Обработчик для кнопки "Создать альянс"
-    document.getElementById("registrAlnsModalBtn").onclick = function (event) {
-        event.preventDefault();
-        document.getElementById("registrAlnsModal").classList.add("show"); // Открываем "Создать альянс"
-    };
+        // Проверка для создания альянса
+        document.getElementById("ID").addEventListener("input", function () {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            checkCreateInput();
+        });
 
-    // Обработчик для кнопки "Создать" в окне регистрации альянса
-    document.getElementById("createButton").onclick = function (event) {
-        event.preventDefault();
-        document.getElementById("registrAlnsModal").classList.remove("show"); // Закрываем окно регистрации альянса
-    };
+        document.getElementById("nameAlns").addEventListener("input", checkCreateInput);
 
-    // Проверка для создания альянса
-    document.getElementById("ID").addEventListener("input", function () {
-        this.value = this.value.replace(/[^0-9]/g, '');
-        checkCreateInput();
-    });
+        function checkCreateInput() {
+            const nameAlns = document.getElementById("nameAlns").value;
+            const ID = document.getElementById("ID").value;
+            const createButton = document.getElementById("createButton");
 
-    document.getElementById("nameAlns").addEventListener("input", checkCreateInput);
-
-    function checkCreateInput() {
-        const nameAlns = document.getElementById("nameAlns").value;
-        const ID = document.getElementById("ID").value;
-        const createButton = document.getElementById("createButton");
-
-        if (nameAlns.trim() !== "" && ID.length === 8) {
-            createButton.style.pointerEvents = 'auto';
-            createButton.style.opacity = 1;
-        } else {
-            createButton.style.pointerEvents = 'none';
-            createButton.style.opacity = 0.5;
+            if (nameAlns.trim() !== "" && ID.length === 8) {
+                createButton.style.pointerEvents = 'auto';
+                createButton.style.opacity = 1;
+            } else {
+                createButton.style.pointerEvents = 'none';
+                createButton.style.opacity = 0.5;
+            }
         }
-    }
 
-    // Обработчик для кнопки "Вступить"
-    document.getElementById("joinButton").onclick = function (event) {
-        event.preventDefault();
-        document.getElementById("joinAlnsModal").classList.remove("show"); // Закрываем окно вступления в альянс
-    };
+        // Обработчик для кнопки "Вступить"
+        document.getElementById("joinButton").onclick = function (event) {
+            event.preventDefault();
+            document.getElementById("joinAlnsModal").classList.remove("show"); // Закрываем окно вступления в альянс
+        };
 
-    // Проверка для вступления в альянс
-    document.getElementById("joinID").addEventListener("input", function () {
-        this.value = this.value.replace(/[^0-9]/g, '');
-        checkJoinInput();
-    });
+        // Проверка для вступления в альянс
+        document.getElementById("joinID").addEventListener("input", function () {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            checkJoinInput();
+        });
 
-    function checkJoinInput() {
-        const ID = document.getElementById("joinID").value;
-        const joinButton = document.getElementById("joinButton");
+        function checkJoinInput() {
+            const ID = document.getElementById("joinID").value;
+            const joinButton = document.getElementById("joinButton");
 
-        if (ID.length === 8) {
-            joinButton.style.pointerEvents = 'auto';
-            joinButton.style.opacity = 1;
-        } else {
-            joinButton.style.pointerEvents = 'none';
-            joinButton.style.opacity = 0.5;
+            if (ID.length === 8) {
+                joinButton.style.pointerEvents = 'auto';
+                joinButton.style.opacity = 1;
+            } else {
+                joinButton.style.pointerEvents = 'none';
+                joinButton.style.opacity = 0.5;
+            }
         }
-    }
-</script>
+    </script>
 
 
 </body>
