@@ -63,8 +63,30 @@ class Register {
         return null;
       }
     }
+    async get_user_hero(req,res) {
+      try {
+        console.log('Начало выполнения запроса');
+        
+        const query = `SELECT * FROM only_user WHERE user_id = $1 `;
+        const values = req.session.userId;
+        const  result = await db.query(query,values);
+        const ress  = result[0];
+        if (!ress) {
+          return { success: false, message: 'Пользователь не найден' };
+        }
+        console.log(ress.hero)
+        return ress.hero
+        
+      }
+       catch (error) {
+      console.error('Ошибка в запросе к базе данных:', error);
+      return null;
+    }
+  }
     
 
 }
+
+
 
 export default Register;

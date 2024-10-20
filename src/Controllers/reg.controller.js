@@ -84,6 +84,15 @@ router.get('/api/get-user-id', (req, res) => {
       res.json({ userId: null });
   }
 });
+router.get('/api/get-user-hero', async (req, res) => {
+  const hero = await regService.get_user_hero(req);
+  if (hero) {
+    res.json({ success: true, hero: hero });  // Отправляем JSON-ответ
+  } else {
+    res.json({ success: false, message: 'Ошибка получения героя' });
+  }
+});
+
 
 
 
