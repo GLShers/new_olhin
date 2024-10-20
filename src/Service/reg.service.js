@@ -34,7 +34,8 @@ class Register {
         if (!ress) {
           return { success: false, message: 'Пользователь не найден' };
         }
-        
+        console.log(ress.id);
+        console.log(req.body.email);
         if (ress.password === req.body.password) {
           return { success: true, message: 'Пользователь найден' };
         } else {
