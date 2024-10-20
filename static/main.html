@@ -268,9 +268,10 @@
 
     <div class="main">
         <div class="profile">
-            <img alt="Profile Picture" src="https://placehold.co/80x80" />
+            <img alt="Profile Picture" src="./img/air_shar.png" />
             <div class="details">
                 <div class="name">logo2355</div>
+                <span id="userId">Загрузка...</span>
                 <div class="level">@logo2355 - Уровень 1 Воин</div>
                 <div class="strong">Сила - 5
                     <pre></pre>Опыт:
@@ -402,6 +403,22 @@
     </script>
 
     <script>
+
+        fetch('/api/get-user-id')
+            .then(response => response.json())
+            .then(data => {
+                if (data.userId) {
+                    document.getElementById('userId').textContent = data.userId;
+                } else {
+                    document.getElementById('userId').textContent = 'ID пользователя не найден';
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                document.getElementById('userId').textContent = 'Ошибка при получении ID';
+            });
+
+
         // Обработчики модальных окон
         function setupModal(modalId, buttonId) {
             var modal = document.getElementById(modalId);
