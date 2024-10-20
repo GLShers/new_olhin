@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Выбор персонажа</title>
+  <link rel="stylesheet" href="css/my_hero.css" />
+</head>
+
+<body>
+  <header class="header">
+    <div class="overlay"></div> <!-- Добавляем затемнение -->
+    <nav class="navbar">
+      <h2 class="logo"><a href="#">OIhin</a></h2>
+    </nav>
+  </header>
+  <section class="my_hero">
+    <div class="content">
+      <div class="window">
+        <h2 class="window-title">Выберите персонажа</h2>
+        <div class="buttons-container">
+          <!-- Исправляем все кнопки, добавляем недостающие data-hero-id -->
+          <button class="character-button" data-hero-id="1">
+            <img src="img/luchnica.png" alt="лучница" class="character-image">
+            Персонаж 1
+          </button>
+          <button class="character-button" data-hero-id="2">
+            <img src="img/air_shar.png" alt="персонаж 2" class="character-image">
+            Персонаж 2
+          </button>
+          <button class="character-button" data-hero-id="3">
+            <img src="img/Big_varvar.png" alt="персонаж 3" class="character-image">
+            Персонаж 3
+          </button>
+          <button class="character-button" data-hero-id="4">
+            <img src="img/chempion.png" alt="персонаж 4" class="character-image">
+            Персонаж 4
+          </button>
+          <button class="character-button" data-hero-id="5">
+            <img src="img/hog.png" alt="персонаж 5" class="character-image">
+            Персонаж 5
+          </button>
+          <button class="character-button" data-hero-id="6">
+            <img src="img/king.png" alt="персонаж 6" class="character-image">
+            Персонаж 6
+          </button>
+          <button class="character-button" data-hero-id="7">
+            <img src="img/peka.png" alt="персонаж 7" class="character-image">
+            Персонаж 7
+          </button>
+          <button class="character-button" data-hero-id="8">
+            <img src="img/plazma.png" alt="персонаж 8" class="character-image">
+            Персонаж 8
+          </button>
+          <button class="character-button" data-hero-id="9">
+            <img src="img/valciria.png" alt="персонаж 9" class="character-image">
+            Персонаж 9
+          </button>
+          <button class="character-button" data-hero-id="10">
+            <img src="img/varvar.png" alt="персонаж 10" class="character-image">
+            Персонаж 10
+          </button>
+          <button class="character-button" data-hero-id="11">
+            <img src="img/vedma.png" alt="персонаж 11" class="character-image">
+            Персонаж 11
+          </button>
+          <button class="character-button" data-hero-id="12">
+            <img src="img/velican.png" alt="персонаж 12" class="character-image">
+            Персонаж 12
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="img">
+      <img src="img/varvar.png" alt="описание изображения" />
+    </div>
+  </section>
+  <script>
+    
+    document.addEventListener('DOMContentLoaded', () => {
+      const characterButtons = document.querySelectorAll('.character-button');
+      console.log('Скрипт загружен и работает!');
+      characterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const heroId = button.getAttribute('data-hero-id');  // Получаем ID персонажа
+          console.log('Скрипт загружен и работает!',  heroId);
+
+          if (!heroId) {
+            console.error('ID персонажа не найден');
+            return;
+          }
+
+          // Отправляем POST-запрос с ID персонажа
+          fetch('/choice_hero', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ heroId })
+          })
+          .then(response => {
+            if (response.ok) {
+              window.location.href = '/home';  // Перенаправляем пользователя на главную страницу
+            } else {
+              console.error('Ошибка при выборе персонажа');
+            }
+          })
+          .catch(error => {
+            console.error('Ошибка запроса:', error);
+          });
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
