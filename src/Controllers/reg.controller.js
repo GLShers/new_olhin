@@ -62,7 +62,13 @@ router.post('/choice_hero', async (req, res) => {
 router.post('/sign-in', async (req, res) => {
   try {
    
-    await regService.Sign_in_User(req)
+    const sign_up_user_id=await regService.Sign_in_User(req)
+    console.log(sign_up_user_id)
+    if  (sign_up_user_id>0) {
+      req.session.userId = sign_up_user_id; 
+      res.redirect('/home')
+    }
+
   } catch (error) {
     console.error('Ошибка при выборе персонажа:', error);
     res.status(500).send('Произошла ошибка');
