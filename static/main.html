@@ -25,9 +25,9 @@
         </div>
         <div class="user-info">
             <img src="img/free-icon-flying-money-10017650.png" alt="баксы" class="baks" id="img-baks">
-            <label  for="baks" id="baksId">55</label>
+            <label for="baks" id="baksId">55</label>
             <img src="img/free-icon-gold-ingot-10021774.png" alt="gold" class="gold">
-            <label  for="gold" id="goldId">7</label>
+            <label for="gold" id="goldId">7</label>
         </div>
     </div>
 
@@ -108,11 +108,19 @@
                     <label for="zamok-strong">Сила замка: </label>
                     <label id="zamok-strong" class="zamok-strong">0</label><br>
                     <label for="zamok-armor">Броня замка: </label>
-                    <label id="zamok-armor" class="zamok-armor">0</label>
+                    <label id="zamok-armor" class="zamok-armor">0</label><br>
+                    <label for="zamok-people">Количество игроков: </label>
+                    <label id="zamok-people" class="zamok-people">0</label>
                 </div>
                 <hr class="vertical-line">
                 <div class="zamok-right">
                     <img src="img/zamok.png" alt="Замок" class="zamok-img">
+                    <div class="progress">
+                        <div class="bar">
+                            <div class="fill mana-zamok" id="exp-zamok" style="width: 50%;"></div>
+                        </div>
+                        <span id="progress-text">0 / 25</span>
+                    </div>
                     <div class="name-zamok-label">
                         <label for="zamok-name">Название замка</label>
                     </div>
@@ -297,11 +305,11 @@
                 </div>
                 <div class="progress">
                     <div class="bar">
-                      <div class="fill mana" id="exp" style="width: 0%;"></div>
+                        <div class="fill mana" id="exp" style="width: 0%;"></div>
                     </div>
                     <span id="progress-text">0 / 25</span>
-                  </div>
-                  
+                </div>
+
             </div>
         </div>
         <div class="cta">
@@ -426,16 +434,16 @@
         fetch('/api/get-user-data')
             .then(response => response.json())  // Преобразуем ответ в JSON
             .then(data => {
-            if (data.success) {
-                // Заменяем текст в элементе с id "name"
-                document.getElementById('namee').textContent = data.dataa;
-                console.log('Данные пользователя:', data.dataa);  // Выводим данные в консоль
-            } else {
-                console.error('Ошибка при получении данных пользователя:', data.message);
-            }
+                if (data.success) {
+                    // Заменяем текст в элементе с id "name"
+                    document.getElementById('namee').textContent = data.dataa;
+                    console.log('Данные пользователя:', data.dataa);  // Выводим данные в консоль
+                } else {
+                    console.error('Ошибка при получении данных пользователя:', data.message);
+                }
             })
             .catch(error => {
-            console.error('Ошибка при выполнении запроса:', error);
+                console.error('Ошибка при выполнении запроса:', error);
             });
 
 
@@ -443,47 +451,47 @@
         fetch('/api/get-user-hero')
             .then(response => response.json())  // Преобразуем ответ в JSON
             .then(data => {
-            if (data.success) {
-                const selectedHeroId = data.hero;
-                console.log('Selected hero ID:', selectedHeroId);  // Выводим ID героя в консоль
-                
-                // Проверяем ID и обновляем картинку
-                if (selectedHeroId === '1') {
-                document.getElementById('im').src = "./img/luchnica.png";
-                } else if (selectedHeroId === '2') {
-                document.getElementById('im').src = "./img/air_shar.png";
-                } else if (selectedHeroId === '3') {
-                document.getElementById('im').src = "./img/Big_varvar.png";
-                } else if (selectedHeroId === '4') {
-                document.getElementById('im').src = "./img/chempion.png";
-                } else if (selectedHeroId === '5') {
-                document.getElementById('im').src = "./img/hog.png";
-                } else if (selectedHeroId === '6') {
-                document.getElementById('im').src = "./img/king.png";
-                } else if (selectedHeroId === '7') {
-                document.getElementById('im').src = "./img/peka.png";
-                } else if (selectedHeroId === '8') {
-                document.getElementById('im').src = "./img/plazma.png";
-                } else if (selectedHeroId === '9') {
-                document.getElementById('im').src = "./img/valciria.png";
-                } else if (selectedHeroId === '10') {
-                document.getElementById('im').src = "./img/varvar.png";
-                } else if (selectedHeroId === '11') {
-                document.getElementById('im').src = "./img/vedma.png";
-                } else if (selectedHeroId === '12') {
-                document.getElementById('im').src = "./img/velican.png";
+                if (data.success) {
+                    const selectedHeroId = data.hero;
+                    console.log('Selected hero ID:', selectedHeroId);  // Выводим ID героя в консоль
+
+                    // Проверяем ID и обновляем картинку
+                    if (selectedHeroId === '1') {
+                        document.getElementById('im').src = "./img/luchnica.png";
+                    } else if (selectedHeroId === '2') {
+                        document.getElementById('im').src = "./img/air_shar.png";
+                    } else if (selectedHeroId === '3') {
+                        document.getElementById('im').src = "./img/Big_varvar.png";
+                    } else if (selectedHeroId === '4') {
+                        document.getElementById('im').src = "./img/chempion.png";
+                    } else if (selectedHeroId === '5') {
+                        document.getElementById('im').src = "./img/hog.png";
+                    } else if (selectedHeroId === '6') {
+                        document.getElementById('im').src = "./img/king.png";
+                    } else if (selectedHeroId === '7') {
+                        document.getElementById('im').src = "./img/peka.png";
+                    } else if (selectedHeroId === '8') {
+                        document.getElementById('im').src = "./img/plazma.png";
+                    } else if (selectedHeroId === '9') {
+                        document.getElementById('im').src = "./img/valciria.png";
+                    } else if (selectedHeroId === '10') {
+                        document.getElementById('im').src = "./img/varvar.png";
+                    } else if (selectedHeroId === '11') {
+                        document.getElementById('im').src = "./img/vedma.png";
+                    } else if (selectedHeroId === '12') {
+                        document.getElementById('im').src = "./img/velican.png";
+                    } else {
+                        // Если id персонажа не найден, выводим изображение по умолчанию
+                        document.getElementById('im').src = "default.png";
+                    }
                 } else {
-                // Если id персонажа не найден, выводим изображение по умолчанию
-                document.getElementById('im').src = "default.png";
+                    console.error('Ошибка при получении данных героя:', data.message);
                 }
-            } else {
-                console.error('Ошибка при получении данных героя:', data.message);
-            }
             })
             .catch(error => {
-            console.error('Ошибка при выполнении запроса:', error);
+                console.error('Ошибка при выполнении запроса:', error);
             });
-                
+
         fetch('/api/get-user-id')
             .then(response => response.json())
             .then(data => {

@@ -168,20 +168,41 @@ body {
     /* Выровнено по левому краю */
 }
 
-#img-baks{
-    height: 45px;
-    width: auto;
-    margin-right: 50px;
+.user-info {
+    display: flex;
+    align-items: center; /* Выравнивание по центру по вертикали */
+    margin: 10px; /* Отступ вокруг блока */
+    padding: 10px; /* Увеличенный внутренний отступ для более чистого вида */
+    background-color: rgba(113, 76, 158, 0.9); /* Насыщенный цвет фона */
+    border-radius: 15px; /* Более округлённые углы */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Более заметная тень для глубины */
 }
 
-.gold{
-    height: 40px;
-    width: auto;
+.baks, .gold {
+    height: 50px; /* Увеличенный размер для изображений */
+    width: auto; /* Автоматическая ширина для сохранения пропорций */
+    margin-right: 15px; /* Увеличенный отступ между иконками и значениями */
+    object-fit: contain; /* Подгонка изображения без искажений */
 }
 
-.user-info{
-    margin-right: 70px;
+label {
+    font-size: 20px; /* Увеличенный размер шрифта для значений */
+    font-weight: bold; /* Жирный шрифт для акцента */
+    color: #ffffff; /* Белый цвет текста для контраста */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Легкая тень для текста */
 }
+
+.user-info img {
+    height: 50px; /* Фиксированная высота для изображений */
+    width: auto; /* Автоматическая ширина для сохранения пропорций */
+    object-fit: contain; /* Подгонка изображения без искажений */
+    transition: transform 0.3s; /* Плавный эффект при наведении */
+}
+
+.user-info img:hover {
+    transform: scale(1.1); /* Увеличение изображения при наведении */
+}
+
 
 #baksId {
     text-align: left;
@@ -963,7 +984,7 @@ hr {
 #zamok {
     display: inline-block;
     width: 800px;
-    height: 600px;
+    height: 625px;
     background-color: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
