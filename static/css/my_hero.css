@@ -111,23 +111,23 @@ body {
 /* Стили для кнопок персонажей */
 .character-button {
   position: relative;
-  background-color: rgba(255, 255, 255, 0.2);
-  border: 2px solid rgb(219, 198, 251);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.3s;
-  text-align: center;
-  padding: 10px;
-  height: 250px;
-  /* Фиксированная высота кнопки */
-  width: 200px;
-  /* Фиксированная ширина кнопки */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  overflow: hidden;
-  /* Скрываем часть изображения, если оно выходит за пределы кнопки */
+  background-color: rgba(255, 255, 255, 0.2); /* Полупрозрачный фон */
+  border: 2px solid rgb(219, 198, 251); /* Цвет рамки */
+  border-radius: 8px; /* Скругленные углы */
+  cursor: pointer; /* Курсор при наведении */
+  transition: background-color 0.3s, transform 0.3s; /* Плавный переход */
+  text-align: center; /* Центрирование текста */
+  padding: 10px; /* Внутренние отступы */
+  height: 250px; /* Фиксированная высота кнопки */
+  width: 200px; /* Фиксированная ширина кнопки */
+  display: flex; /* Flexbox для вертикального выравнивания */
+  flex-direction: column; /* Вертикальное направление */
+  justify-content: space-between; /* Пространство между элементами */
+  align-items: center; /* Центрирование элементов по горизонтали */
+  overflow: hidden; /* Скрытие части изображения */
+  font-family: 'Arial', sans-serif; /* Шрифт */
+  font-size: 18px; /* Увеличенный размер шрифта */
+  color: #fff; /* Белый цвет текста для лучшего контраста */
 }
 
 
