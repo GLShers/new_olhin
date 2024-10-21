@@ -13,7 +13,8 @@ body {
     box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
     height: 100%;
     margin: 0;
     padding: 0;
@@ -129,43 +130,79 @@ html, body {
 }
 
 .progress {
-    width: 100%; /* Заполняет всю ширину родителя */
-    background-color: rgba(255, 255, 255, 0.2); /* Фон для прогресс-бара */
-    border-radius: 20px; /* Скругление краев */
-    overflow: hidden; /* Обрезает содержимое за границами */
+    width: 100%;
+    /* Заполняет всю ширину родителя */
+    background-color: rgba(255, 255, 255, 0.2);
+    /* Фон для прогресс-бара */
+    border-radius: 20px;
+    /* Скругление краев */
+    overflow: hidden;
+    /* Обрезает содержимое за границами */
 }
 
 .bar {
-    height: 20px; /* Высота прогресс-бара */
-    background-color: #ccc; /* Цвет серой линии */
-    border-radius: 20px; /* Скругление краев серой линии */
-    position: relative; /* Для позиционирования заполненной части */
+    height: 20px;
+    /* Высота прогресс-бара */
+    background-color: #ccc;
+    /* Цвет серой линии */
+    border-radius: 20px;
+    /* Скругление краев серой линии */
+    position: relative;
+    /* Для позиционирования заполненной части */
 }
 
 .fill {
-    height: 100%; /* Заполняет всю высоту родительского контейнера */
-    background-color: #4caf50; /* Цвет заполняемого прогресса */
-    border-radius: 20px; /* Скругление краев заполненного прогресса */
-    transition: width 0.3s ease; /* Плавный переход при изменении ширины */
-    position: absolute; /* Позволяет заполнению правильно позиционироваться */
-    top: 0; /* Выровнено по верхнему краю */
-    left: 0; /* Выровнено по левому краю */
+    height: 100%;
+    /* Заполняет всю высоту родительского контейнера */
+    background-color: #4caf50;
+    /* Цвет заполняемого прогресса */
+    border-radius: 20px;
+    /* Скругление краев заполненного прогресса */
+    transition: width 0.3s ease;
+    /* Плавный переход при изменении ширины */
+    position: absolute;
+    /* Позволяет заполнению правильно позиционироваться */
+    top: 0;
+    /* Выровнено по верхнему краю */
+    left: 0;
+    /* Выровнено по левому краю */
 }
 
-#img-baks{
-    height: 45px;
-    width: auto;
-    margin-right: 50px;
+.user-info {
+    display: flex;
+    align-items: center; /* Выравнивание по центру по вертикали */
+    margin: 10px; /* Отступ вокруг блока */
+    padding: 10px; /* Увеличенный внутренний отступ для более чистого вида */
+    background-color: rgba(113, 76, 158, 0.9); /* Насыщенный цвет фона */
+    border-radius: 15px; /* Более округлённые углы */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Более заметная тень для глубины */
 }
 
-.gold{
-    height: 40px;
-    width: auto;
+.baks, .gold {
+    height: 50px; /* Увеличенный размер для изображений */
+    width: auto; /* Автоматическая ширина для сохранения пропорций */
+    margin-right: 15px; /* Увеличенный отступ между иконками и значениями */
+    object-fit: contain; /* Подгонка изображения без искажений */
 }
 
-.user-info{
-    margin-right: 70px;
+label {
+    font-size: 20px; /* Увеличенный размер шрифта для значений */
+    font-weight: bold; /* Жирный шрифт для акцента */
+    color: #ffffff; /* Белый цвет текста для контраста */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Легкая тень для текста */
 }
+
+.user-info img {
+    height: 50px; /* Фиксированная высота для изображений */
+    width: auto; /* Автоматическая ширина для сохранения пропорций */
+    object-fit: contain; /* Подгонка изображения без искажений */
+    transition: transform 0.3s; /* Плавный эффект при наведении */
+}
+
+.user-info img:hover {
+    transform: scale(1.1); /* Увеличение изображения при наведении */
+}
+
 
 #baksId {
     text-align: left;
@@ -380,8 +417,10 @@ html, body {
 
 .close {
     position: absolute;
-    top: 10px; /* Отступ сверху */
-    right: 20px; /* Отступ справа */
+    top: 10px;
+    /* Отступ сверху */
+    right: 20px;
+    /* Отступ справа */
     color: red;
     font-size: 28px;
     font-weight: bold;
@@ -403,7 +442,7 @@ html, body {
     }
 }
 
-.lavka-img{
+.lavka-img {
     height: 150px;
     width: auto;
     margin-bottom: 40px;
@@ -431,7 +470,7 @@ html, body {
     overflow-y: auto;
 }
 
-hr{
+hr {
     width: 75%;
 
 }
@@ -439,7 +478,7 @@ hr{
 .user {
     display: flex;
     justify-content: space-between;
-    cursor:  pointer;
+    cursor: pointer;
     color: #e0e0e0;
     border: 2px solid rgb(219, 198, 251);
     border-radius: 20px;
@@ -451,84 +490,109 @@ hr{
 
 }
 
-#user-img{
+#user-img {
     height: 100px;
     width: auto;
     border-radius: 4px;
     margin-right: 15px;
 }
 
-.main-alns a{
+.main-alns a {
     text-decoration: none;
 }
 
-.main-alns a:hover .user{
+.main-alns a:hover .user {
     text-decoration: none;
     background-color: rgba(255, 255, 255, 0.5);
 }
+
 /* Общие стили для блока поиска */
 /* Общие стили для блока поиска */
 .search-user {
     display: flex;
-    align-items: center; /* Выравнивание по центру по вертикали */
-    justify-content: flex-start; /* Элементы выровнены слева */
+    align-items: center;
+    /* Выравнивание по центру по вертикали */
+    justify-content: flex-start;
+    /* Элементы выровнены слева */
     padding: 20px;
 }
 
 .user-name-input {
     height: 40px;
     width: 300px;
-    padding: 10px; /* Внутренний отступ */
-    margin-right: 20px; /* Отступ справа для кнопки поиска */
+    padding: 10px;
+    /* Внутренний отступ */
+    margin-right: 20px;
+    /* Отступ справа для кнопки поиска */
     border-radius: 20px;
     font-size: 20px;
     color: #ffffff;
-    border: 2px solid rgb(219, 198, 251); /* Прозрачный бордер */
-    border-radius: 20px; /* Закругленные углы */
-    background-color: rgba(255, 255, 255, 0.1); /* Прозрачный фон */
-    backdrop-filter: blur(15px); /* Размытие фона */
-    -webkit-backdrop-filter: blur(15px); /* Поддержка WebKit */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Тень для кнопки */
+    border: 2px solid rgb(219, 198, 251);
+    /* Прозрачный бордер */
+    border-radius: 20px;
+    /* Закругленные углы */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Прозрачный фон */
+    backdrop-filter: blur(15px);
+    /* Размытие фона */
+    -webkit-backdrop-filter: blur(15px);
+    /* Поддержка WebKit */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Тень для кнопки */
 }
 
 /* Стили для кнопки поиска */
 .search-button {
     display: inline-block;
-    height: 60px; /* Совпадает с высотой поля ввода */
+    height: 60px;
+    /* Совпадает с высотой поля ввода */
     width: 60px;
-    cursor: pointer; /* Указатель при наведении */
-    border: 2px solid rgb(219, 198, 251); /* Прозрачный бордер */
-    border-radius: 20px; /* Закругленные углы */
-    background-color: rgba(255, 255, 255, 0.1); /* Прозрачный фон */
-    backdrop-filter: blur(15px); /* Размытие фона */
-    -webkit-backdrop-filter: blur(15px); /* Поддержка WebKit */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Тень для кнопки */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Плавный эффект при наведении */
-    text-align: center; /* Центровка изображения */
-    overflow: hidden; /* Обрезать содержимое, выходящее за границы кнопки */
+    cursor: pointer;
+    /* Указатель при наведении */
+    border: 2px solid rgb(219, 198, 251);
+    /* Прозрачный бордер */
+    border-radius: 20px;
+    /* Закругленные углы */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Прозрачный фон */
+    backdrop-filter: blur(15px);
+    /* Размытие фона */
+    -webkit-backdrop-filter: blur(15px);
+    /* Поддержка WebKit */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Тень для кнопки */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Плавный эффект при наведении */
+    text-align: center;
+    /* Центровка изображения */
+    overflow: hidden;
+    /* Обрезать содержимое, выходящее за границы кнопки */
 }
 
 /* Изображение внутри кнопки */
 .button-search-img {
     width: 90%;
     height: 90%;
-    object-fit: cover; /* Картинка подгоняется под размер кнопки */
-    border-radius: 20px; /* Скругление углов изображения */
+    object-fit: cover;
+    /* Картинка подгоняется под размер кнопки */
+    border-radius: 20px;
+    /* Скругление углов изображения */
 }
 
 /* Эффект при наведении на кнопку */
 .search-button:hover {
-    background-color: rgba(255, 255, 255, 0.3); /* Более яркий фон при наведении */
+    background-color: rgba(255, 255, 255, 0.3);
+    /* Более яркий фон при наведении */
 }
 
-.alns-header{
+.alns-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
 }
 
-.gerb{
+.gerb {
     height: 90px;
     width: auto;
     padding: 30px;
@@ -545,20 +609,32 @@ hr{
     border-radius: 10px;
 }
 
-.registr-alns, .join-alns{
+.registr-alns,
+.join-alns {
     display: flex;
-    height: 60px; /* Совпадает с высотой поля ввода */
+    height: 60px;
+    /* Совпадает с высотой поля ввода */
     width: 120px;
-    cursor: pointer; /* Указатель при наведении */
-    border: 2px solid rgb(219, 198, 251); /* Прозрачный бордер */
-    border-radius: 20px; /* Закругленные углы */
-    background-color: rgba(255, 255, 255, 0.1); /* Прозрачный фон */
-    backdrop-filter: blur(15px); /* Размытие фона */
-    -webkit-backdrop-filter: blur(15px); /* Поддержка WebKit */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Тень для кнопки */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Плавный эффект при наведении */
-    text-align: center; /* Центровка изображения */
-    overflow: hidden; /* Обрезать содержимое, выходящее за границы кнопки */
+    cursor: pointer;
+    /* Указатель при наведении */
+    border: 2px solid rgb(219, 198, 251);
+    /* Прозрачный бордер */
+    border-radius: 20px;
+    /* Закругленные углы */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Прозрачный фон */
+    backdrop-filter: blur(15px);
+    /* Размытие фона */
+    -webkit-backdrop-filter: blur(15px);
+    /* Поддержка WebKit */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Тень для кнопки */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Плавный эффект при наведении */
+    text-align: center;
+    /* Центровка изображения */
+    overflow: hidden;
+    /* Обрезать содержимое, выходящее за границы кнопки */
     text-decoration: none;
     margin: 15px;
     font-size: 25px;
@@ -568,14 +644,16 @@ hr{
 }
 
 .join-alns:hover {
-    background-color: rgba(255, 255, 255, 0.3); /* Более яркий фон при наведении */
+    background-color: rgba(255, 255, 255, 0.3);
+    /* Более яркий фон при наведении */
 }
 
 .registr-alns:hover {
-    background-color: rgba(255, 255, 255, 0.3); /* Более яркий фон при наведении */
+    background-color: rgba(255, 255, 255, 0.3);
+    /* Более яркий фон при наведении */
 }
 
-#registrAlns{
+#registrAlns {
     width: 400px;
     height: 550px;
     background-color: rgba(73, 21, 138, 0.4);
@@ -595,46 +673,64 @@ hr{
     overflow-y: auto;
 }
 
-.name-registrAlns{
+.name-registrAlns {
     height: 30px;
     width: 200px;
-    border: 2px solid rgb(219, 198, 251); /* Прозрачный бордер */
-    border-radius: 20px; /* Закругленные углы */
+    border: 2px solid rgb(219, 198, 251);
+    /* Прозрачный бордер */
+    border-radius: 20px;
+    /* Закругленные углы */
 }
 
-.ID-registrAlns{
+.ID-registrAlns {
     height: 30px;
     width: 200px;
-    border: 2px solid rgb(219, 198, 251); /* Прозрачный бордер */
-    border-radius: 20px; /* Закругленные углы */
+    border: 2px solid rgb(219, 198, 251);
+    /* Прозрачный бордер */
+    border-radius: 20px;
+    /* Закругленные углы */
 }
 
 
-.main-registrAlns{
+.main-registrAlns {
     text-align: center;
 }
 
 .button-container {
     display: flex;
-    justify-content: center; /* Центрирование по горизонтали */
-    align-items: center; /* Центрирование по вертикали */
-    height: 20vh; /* Высота контейнера */
+    justify-content: center;
+    /* Центрирование по горизонтали */
+    align-items: center;
+    /* Центрирование по вертикали */
+    height: 20vh;
+    /* Высота контейнера */
 }
 
 .button-registrAlns {
     display: flex;
-    height: 60px; /* Совпадает с высотой поля ввода */
+    height: 60px;
+    /* Совпадает с высотой поля ввода */
     width: 120px;
-    cursor: pointer; /* Указатель при наведении */
-    border: 2px solid rgb(219, 198, 251); /* Прозрачный бордер */
-    border-radius: 20px; /* Закругленные углы */
-    background-color: rgba(255, 255, 255, 0.1); /* Прозрачный фон */
-    backdrop-filter: blur(15px); /* Размытие фона */
-    -webkit-backdrop-filter: blur(15px); /* Поддержка WebKit */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Тень для кнопки */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Плавный эффект при наведении */
-    text-align: center; /* Центровка текста */
-    overflow: hidden; /* Обрезать содержимое, выходящее за границы кнопки */
+    cursor: pointer;
+    /* Указатель при наведении */
+    border: 2px solid rgb(219, 198, 251);
+    /* Прозрачный бордер */
+    border-radius: 20px;
+    /* Закругленные углы */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Прозрачный фон */
+    backdrop-filter: blur(15px);
+    /* Размытие фона */
+    -webkit-backdrop-filter: blur(15px);
+    /* Поддержка WebKit */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Тень для кнопки */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Плавный эффект при наведении */
+    text-align: center;
+    /* Центровка текста */
+    overflow: hidden;
+    /* Обрезать содержимое, выходящее за границы кнопки */
     text-decoration: none;
     margin: 15px;
     font-size: 25px;
@@ -642,7 +738,7 @@ hr{
 }
 
 
-#joinAlns{
+#joinAlns {
     width: 400px;
     height: 550px;
     background-color: rgba(73, 21, 138, 0.4);
@@ -664,18 +760,29 @@ hr{
 
 #joinButton {
     display: flex;
-    height: 60px; /* Совпадает с высотой поля ввода */
+    height: 60px;
+    /* Совпадает с высотой поля ввода */
     width: 120px;
-    cursor: pointer; /* Указатель при наведении */
-    border: 2px solid rgb(219, 198, 251); /* Прозрачный бордер */
-    border-radius: 20px; /* Закругленные углы */
-    background-color: rgba(255, 255, 255, 0.1); /* Прозрачный фон */
-    backdrop-filter: blur(15px); /* Размытие фона */
-    -webkit-backdrop-filter: blur(15px); /* Поддержка WebKit */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Тень для кнопки */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Плавный эффект при наведении */
-    text-align: center; /* Центровка текста */
-    overflow: hidden; /* Обрезать содержимое, выходящее за границы кнопки */
+    cursor: pointer;
+    /* Указатель при наведении */
+    border: 2px solid rgb(219, 198, 251);
+    /* Прозрачный бордер */
+    border-radius: 20px;
+    /* Закругленные углы */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Прозрачный фон */
+    backdrop-filter: blur(15px);
+    /* Размытие фона */
+    -webkit-backdrop-filter: blur(15px);
+    /* Поддержка WebKit */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Тень для кнопки */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Плавный эффект при наведении */
+    text-align: center;
+    /* Центровка текста */
+    overflow: hidden;
+    /* Обрезать содержимое, выходящее за границы кнопки */
     text-decoration: none;
     margin: 15px;
     font-size: 25px;
@@ -721,7 +828,7 @@ hr{
 
 .main-inventary {
     display: flex;
-    align-items: stretch; 
+    align-items: stretch;
     margin-top: 20px;
     width: 100%;
 }
@@ -729,24 +836,37 @@ hr{
 .inventory-left {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Расстояние между кнопками */
-    margin-right: 20px; /* Отступ справа для отделения от вертикальной линии */
+    gap: 10px;
+    /* Расстояние между кнопками */
+    margin-right: 20px;
+    /* Отступ справа для отделения от вертикальной линии */
 }
 
 .inventory-btn {
     display: inline-block;
-    height: 60px; /* Совпадает с высотой поля ввода */
+    height: 60px;
+    /* Совпадает с высотой поля ввода */
     width: 120px;
-    cursor: pointer; /* Указатель при наведении */
-    border: 2px solid rgb(219, 198, 251); /* Прозрачный бордер */
-    border-radius: 20px; /* Закругленные углы */
-    background-color: rgba(255, 255, 255, 0.1); /* Прозрачный фон */
-    backdrop-filter: blur(15px); /* Размытие фона */
-    -webkit-backdrop-filter: blur(15px); /* Поддержка WebKit */
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Тень для кнопки */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* Плавный эффект при наведении */
-    text-align: center; /* Центровка изображения */
-    overflow: hidden; /* Обрезать содержимое, выходящее за границы кнопки */
+    cursor: pointer;
+    /* Указатель при наведении */
+    border: 2px solid rgb(219, 198, 251);
+    /* Прозрачный бордер */
+    border-radius: 20px;
+    /* Закругленные углы */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Прозрачный фон */
+    backdrop-filter: blur(15px);
+    /* Размытие фона */
+    -webkit-backdrop-filter: blur(15px);
+    /* Поддержка WebKit */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Тень для кнопки */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Плавный эффект при наведении */
+    text-align: center;
+    /* Центровка изображения */
+    overflow: hidden;
+    /* Обрезать содержимое, выходящее за границы кнопки */
     font-size: 25px;
     color: #e0e0e0;
 }
@@ -759,21 +879,28 @@ hr{
     width: 4px;
     color: #e0e0e0;
     background-color: #ccc;
-    height: auto; /* Полная высота блока */
-    margin: 0 20px; /* Отступ слева и справа */
+    height: auto;
+    /* Полная высота блока */
+    margin: 0 20px;
+    /* Отступ слева и справа */
     border-radius: 2px;
 }
 
 .inventory-right {
     display: flex;
-    flex-wrap: wrap; /* Позволяет иконкам переноситься на следующую строку */
-    margin: 10px; /* Убираем отступы снаружи */
+    flex-wrap: wrap;
+    /* Позволяет иконкам переноситься на следующую строку */
+    margin: 10px;
+    /* Убираем отступы снаружи */
 }
 
 .inventory-category {
-    display: flex; /* Убедитесь, что внутри есть flex */
-    flex-wrap: wrap; /* Позволяет иконкам переноситься на следующую строку */
-    margin: -5px; /* Убираем лишние отступы снаружи */
+    display: flex;
+    /* Убедитесь, что внутри есть flex */
+    flex-wrap: wrap;
+    /* Позволяет иконкам переноситься на следующую строку */
+    margin: -5px;
+    /* Убираем лишние отступы снаружи */
 }
 
 .inventory-category::-webkit-scrollbar {
@@ -788,32 +915,45 @@ hr{
 }
 
 .inventory-item {
-    width: 80px; /* Фиксированная ширина */
-    height: 80px; /* Фиксированная высота */
+    width: 80px;
+    /* Фиксированная ширина */
+    height: 80px;
+    /* Фиксированная высота */
     object-fit: cover;
-    border: 2px solid rgb(219, 198, 251); /* Прозрачный бордер */
+    border: 2px solid rgb(219, 198, 251);
+    /* Прозрачный бордер */
     border-radius: 5px;
-    margin: 5px; /* Отступы между иконками */
-    box-sizing: border-box; /* Учитываем отступы и границы в размерах элемента */
+    margin: 5px;
+    /* Отступы между иконками */
+    box-sizing: border-box;
+    /* Учитываем отступы и границы в размерах элемента */
 }
 
 .inventary-line {
-    width: 100%; /* Задает 100% ширины родительского элемента */
-    height: 2px; /* Задайте высоту линии */
-    background-color:#e0e0e0; /* Цвет линии */
-    border: none; /* Убираем стандартное оформление */
-    margin: 20px 0; /* Отступы сверху и снизу */
+    width: 100%;
+    /* Задает 100% ширины родительского элемента */
+    height: 2px;
+    /* Задайте высоту линии */
+    background-color: #e0e0e0;
+    /* Цвет линии */
+    border: none;
+    /* Убираем стандартное оформление */
+    margin: 20px 0;
+    /* Отступы сверху и снизу */
 }
 
 .large-photo-container {
-    flex: 1; /* Занимает оставшееся пространство */
+    flex: 1;
+    /* Занимает оставшееся пространство */
     display: flex;
     align-items: center;
 }
 
 .large-photo {
-    max-width: auto; /* Ограничивает ширину фотографии */
-    max-height: 200px; /* Ограничивает высоту, чтобы не превышать размер контейнера */
+    max-width: auto;
+    /* Ограничивает ширину фотографии */
+    max-height: 200px;
+    /* Ограничивает высоту, чтобы не превышать размер контейнера */
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
@@ -821,25 +961,30 @@ hr{
 
 .small-photos-container {
     display: flex;
-    flex-direction: column; /* Размещает фотографии одна под другой */
-    gap: 10px; /* Расстояние между фотографиями */
-    margin-left: 20px; /* Отступ слева */
+    flex-direction: column;
+    /* Размещает фотографии одна под другой */
+    gap: 10px;
+    /* Расстояние между фотографиями */
+    margin-left: 20px;
+    /* Отступ слева */
     margin-top: 65px;
 }
 
 .small-photo {
-    width: auto; /* Ширина маленькой фотографии */
-    height: 50px; /* Высота маленькой фотографии */
+    width: auto;
+    /* Ширина маленькой фотографии */
+    height: 50px;
+    /* Высота маленькой фотографии */
     object-fit: cover;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 
-#zamok{
+#zamok {
     display: inline-block;
     width: 800px;
-    height: 600px;
+    height: 625px;
     background-color: rgba(255, 255, 255, 0.1);
     border: 2px solid rgba(255, 255, 255, 0.5);
     border-radius: 20px;
@@ -857,7 +1002,36 @@ hr{
     overflow-y: auto;
 }
 
+.main-zamok {
+    display: flex;
+    align-items: stretch;
+    margin-top: 20px;
+    width: 100%;
+    margin-bottom: 20px; /* Увеличивает расстояние между label */
 
+}
+
+.zamok-left label {
+    padding-bottom: 10px; /* Добавляет внутренний отступ */
+    line-height: 2.5; /* Увеличивает высоту строки */
+}
+
+
+
+.zamok-right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: 60px;
+}
+
+.zamok-img {
+    height: 350px;
+    width: auto;
+    margin-bottom: 30px;
+    /* Установите нужный отступ */
+}
 
 
 /* Адаптация для мобильных устройств */
@@ -868,6 +1042,7 @@ hr{
     }
 
     .vertical-line {
-        display: none; /* Убираем вертикальную линию на маленьких экранах */
+        display: none;
+        /* Убираем вертикальную линию на маленьких экранах */
     }
 }

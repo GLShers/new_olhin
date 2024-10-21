@@ -25,9 +25,9 @@
         </div>
         <div class="user-info">
             <img src="img/free-icon-flying-money-10017650.png" alt="баксы" class="baks" id="img-baks">
-            <label  for="baks" id="baksId">55</label>
+            <label for="baks" id="baksId">55</label>
             <img src="img/free-icon-gold-ingot-10021774.png" alt="gold" class="gold">
-            <label  for="gold" id="goldId">7</label>
+            <label for="gold" id="goldId">7</label>
         </div>
     </div>
 
@@ -97,22 +97,34 @@
     <div class="modal" id="zamokModal">
         <div class="modal-content" id="zamok">
             <span class="close">&times;</span>
-            <div class="header-zamok">               
-                <h2>Наш замок</h2>                
+            <div class="header-zamok">
+                <h2>Наш замок</h2>
             </div>
             <hr>
-            <div class="zamok-left">
-                <label for="zamok-level">Уровень замка: </label>
-                <label  for="zamok-level" id="zamok-level">1</label>
-                <label  for="zamok-strong">Сила замка: </label>
-                <label  id="zamok-strong" class="zamok-strong">0</label>
-                <label  for="zamok-armor">Броня замка: </label>
-                <label id="zamok-armor" class="zamok-armor"></label>
-            </div>
-            <hr class="vertical-line">
-            <div class="zamok-right">
-                <img  src="img/" alt="Замок" class="zamok-img">
-                <label  for="zamok-name">Название замка</label>              
+            <div class="main-zamok">
+                <div class="zamok-left">
+                    <label for="zamok-level">Уровень замка: </label>
+                    <label for="zamok-level" id="zamok-level">1</label><br>
+                    <label for="zamok-strong">Сила замка: </label>
+                    <label id="zamok-strong" class="zamok-strong">0</label><br>
+                    <label for="zamok-armor">Броня замка: </label>
+                    <label id="zamok-armor" class="zamok-armor">0</label><br>
+                    <label for="zamok-people">Количество игроков: </label>
+                    <label id="zamok-people" class="zamok-people">0</label>
+                </div>
+                <hr class="vertical-line">
+                <div class="zamok-right">
+                    <img src="img/zamok.png" alt="Замок" class="zamok-img">
+                    <div class="progress">
+                        <div class="bar">
+                            <div class="fill mana-zamok" id="exp-zamok" style="width: 50%;"></div>
+                        </div>
+                        <span id="progress-text">0 / 25</span>
+                    </div>
+                    <div class="name-zamok-label">
+                        <label for="zamok-name">Название замка</label>
+                    </div>
+                </div>
             </div>
 
 
@@ -293,11 +305,11 @@
                 </div>
                 <div class="progress">
                     <div class="bar">
-                      <div class="fill mana" id="exp" style="width: 10%;"></div>
+                      <div class="fill mana" id="exp" style="width: 0%;"></div>
                     </div>
                     <span id="progress-text">0 / 25</span>
-                  </div>
-                  
+                </div>
+
             </div>
         </div>
         <div class="cta">
@@ -453,16 +465,16 @@
         fetch('/api/get-user-data')
             .then(response => response.json())  // Преобразуем ответ в JSON
             .then(data => {
-            if (data.success) {
-                // Заменяем текст в элементе с id "name"
-                document.getElementById('namee').textContent = data.dataa;
-                console.log('Данные пользователя:', data.dataa);  // Выводим данные в консоль
-            } else {
-                console.error('Ошибка при получении данных пользователя:', data.message);
-            }
+                if (data.success) {
+                    // Заменяем текст в элементе с id "name"
+                    document.getElementById('namee').textContent = data.dataa;
+                    console.log('Данные пользователя:', data.dataa);  // Выводим данные в консоль
+                } else {
+                    console.error('Ошибка при получении данных пользователя:', data.message);
+                }
             })
             .catch(error => {
-            console.error('Ошибка при выполнении запроса:', error);
+                console.error('Ошибка при выполнении запроса:', error);
             });
 
 
@@ -471,7 +483,7 @@
             .then(response => response.json())  // Преобразуем ответ в JSON
             .then(data => {
             if (data.success) {
-                const selectedHeroId = data.hero.hero;
+                const selectedHeroId = data.hero;
                 console.log('Selected hero ID:', selectedHeroId);  // Выводим ID героя в консоль
                 
                 // Проверяем ID и обновляем картинку
@@ -508,9 +520,9 @@
             }
             })
             .catch(error => {
-            console.error('Ошибка при выполнении запроса:', error);
+                console.error('Ошибка при выполнении запроса:', error);
             });
-                
+
         fetch('/api/get-user-id')
             .then(response => response.json())
             .then(data => {
