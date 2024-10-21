@@ -986,19 +986,29 @@ hr {
     align-items: stretch;
     margin-top: 20px;
     width: 100%;
+    margin-bottom: 20px; /* Увеличивает расстояние между label */
+
 }
+
+.zamok-left label {
+    padding-bottom: 10px; /* Добавляет внутренний отступ */
+    line-height: 2.5; /* Увеличивает высоту строки */
+}
+
+
 
 .zamok-right {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin-left: 60px;
 }
 
 .zamok-img {
     height: 350px;
     width: auto;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     /* Установите нужный отступ */
 }
 
