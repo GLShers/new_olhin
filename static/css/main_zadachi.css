@@ -207,3 +207,198 @@
 }
 
 
+
+
+
+
+
+
+
+
+
+
+
+.svobodnieZadachi {
+    max-height: 250px;
+    /* Максимальная высота для области задач */
+    overflow-y: auto;
+    /* Вертикальный скроллинг */
+    padding: 10px;
+    /* Отступы для улучшения дизайна */
+    border-radius: 8px;
+    /* Закругленные углы */
+    background-color: #f9f9f9;
+    /* Светлый фон */
+}
+
+/* Для прокрутки добавим стили для скроллбара */
+.svobodnieZadachi::-webkit-scrollbar {
+    width: 8px;
+    /* Ширина скроллбара */
+}
+
+.svobodnieZadachi::-webkit-scrollbar-thumb {
+    background: #888;
+    /* Цвет ползунка */
+    border-radius: 10px;
+    /* Закругление ползунка */
+}
+
+.svobodnieZadachi::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Цвет ползунка при наведении */
+}
+
+.item {
+    background-color: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.item:hover {
+    background-color: #eaeaea;
+    transform: scale(1.05);
+    /* Увеличение окна */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    /* Тень */
+}
+
+.text {
+    color: #555;
+    font-family: 'Arial', sans-serif;
+    font-size: 16px;
+    text-align: center;
+}
+
+
+
+
+
+
+
+
+
+.svobodnieZadachi-1-vsp {
+    width: 800px;
+    height: 600px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgb(219, 198, 251);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; /* Сохраняем элементы по центру */
+    text-align: center;
+    color: white;
+    font-size: 1.5rem;
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    overflow-y: auto;
+}
+
+#AdminsvobodnieZadachi {
+    margin-top: 20px;
+    margin-left: auto; /* Сдвигаем label вправо */
+    text-align: left; /* Выравнивание текста влево для label */
+    color: white; /* Убедитесь, что цвет текста соответствует фону */
+}
+
+
+
+.window-for-text {
+    height: 300px;
+    width: 600px;
+    /* Фиксированная ширина */
+    background-color: #f9f9f9;
+    border: 2px solid rgb(219, 198, 251);
+    border-radius: 10px;
+    margin-top: 20px;
+    padding: 20px;
+    /* Увеличенный отступ для лучшего восприятия */
+    color: black;
+    overflow-y: auto;
+    font-family: 'Arial', sans-serif;
+    /* Установка шрифта */
+    font-size: 16px;
+    /* Увеличение размера шрифта */
+    line-height: 1.5;
+    /* Междустрочный интервал для улучшения читаемости */
+    text-align: left;
+    /* Выравнивание текста влево */
+    box-sizing: border-box;
+    /* Учитывать padding и border в ширине */
+}
+
+
+.window-for-text p {
+    margin: 10px 0;
+    /* Отступы для параграфов */
+}
+
+
+#finishButton-svobodnieZadachi {
+    display: flex;
+    height: 60px;
+    /* Совпадает с высотой поля ввода */
+    width: 150px;
+    cursor: pointer;
+    /* Указатель при наведении */
+    border: 2px solid rgb(219, 198, 251);
+    /* Прозрачный бордер */
+    border-radius: 20px;
+    /* Закругленные углы */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Прозрачный фон */
+    backdrop-filter: blur(15px);
+    /* Размытие фона */
+    -webkit-backdrop-filter: blur(15px);
+    /* Поддержка WebKit */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    /* Тень для кнопки */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    /* Плавный эффект при наведении */
+    text-align: center;
+    /* Центровка текста */
+    overflow: hidden;
+    /* Обрезать содержимое, выходящее за границы кнопки */
+    text-decoration: none;
+    margin: 15px;
+    font-size: 25px;
+    color: #e0e0e0;
+    justify-content: center;
+    align-items: center;
+}
+
+#finishButton-svobodnieZadachi:hover {
+    transform: scale(1.05);
+    /* Увеличение окна */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    /* Тень */
+    background-color: rgba(255, 255, 255, 0.5);
+
+}
+
+/* Для прокрутки добавим стили для скроллбара */
+.window-for-text::-webkit-scrollbar {
+    width: 8px;
+    /* Ширина скроллбара */
+}
+
+.window-for-text::-webkit-scrollbar-thumb {
+    background: #888;
+    /* Цвет ползунка */
+    border-radius: 10px;
+    /* Закругление ползунка */
+}
+
+.window-for-text::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Цвет ползунка при наведении */
+}
