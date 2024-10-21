@@ -22,7 +22,7 @@ router.get('/registry',async (req,res)=>{
 
 
 router.get('/hero',async (req,res)=>{
-    console.log('User ID from session:', req.session.userId);
+    
     res.sendFile(path.join(__dirname, '..', '..', 'static', 'my_hero.html'));
 });
 
@@ -35,7 +35,8 @@ router.post('/sign-up',async (req, res) => {
 });//тут просто выполняется sql запрос , записывается пользователь в бд, и сохраняется id нового пользователя для его дальшнейшей регистрации
 
 router.get('/home',async (req,res)=>{
-    res.sendFile(path.join(__dirname,'..', '..', 'static', 'main.html'));
+  console.log('User ID from session:', req.session.userId);
+  res.sendFile(path.join(__dirname,'..', '..', 'static', 'main.html'));
 
 })
 router.post('/choice_hero', async (req, res) => {
@@ -74,6 +75,33 @@ router.post('/sign-in', async (req, res) => {
     res.status(500).send('Произошла ошибка');
   }
 });
-  
+
+
+router.get('/api/get-user-id', (req, res) => {
+  if (req.session.userId) {
+      res.json({ userId: req.session.userId });
+  } else {
+      res.json({ userId: null });
+  }
+});
+router.get('/api/get-user-hero', async (req, res) => {
+  const hero = await regService.get_user_hero(req);
+  if (hero) {
+    res.json({ success: true, hero: hero });  // Отправляем JSON-ответ
+  } else {
+    res.json({ success: false, message: 'Ошибка получения героя' });
+  }
+});
+router.get('/api/get-user-data', async (req, res) => {
+  const data = await regService.get_user_data(req);
+  if (data) {
+    res.json({ success: true, dataa: data });  // Отправляем JSON-ответ
+  } else {
+    res.json({ success: false, message: 'Ошибка получения героя' });
+  }
+});
+
+
+
 
 export default router; // Экспорт маршрутизатора

@@ -24,7 +24,10 @@
             </nav>
         </div>
         <div class="user-info">
-            <!-- иконки пользователя -->
+            <img src="img/free-icon-flying-money-10017650.png" alt="баксы" class="baks" id="img-baks">
+            <label  for="baks" id="baksId">55</label>
+            <img src="img/free-icon-gold-ingot-10021774.png" alt="gold" class="gold">
+            <label  for="gold" id="goldId">7</label>
         </div>
     </div>
 
@@ -284,19 +287,21 @@
 
     <div class="main">
         <div class="profile">
-            <img alt="Profile Picture" src="https://placehold.co/80x80" />
+            <img id="im" alt="Profile Picture" src="default.png" />
             <div class="details">
-                <div class="name">logo2355</div>
+                <span class="name" id="namee">logo2355</span>
+                <span id="userId">Загрузка...</span>
                 <div class="level">@logo2355 - Уровень 1 Воин</div>
                 <div class="strong">Сила - 5
                     <pre></pre>Опыт:
                 </div>
                 <div class="progress">
                     <div class="bar">
-                        <div class="fill mana" id="exp" style="width: 0%;"></div>
+                      <div class="fill mana" id="exp" style="width: 0%;"></div>
                     </div>
-                    <span>0 / 25</span>
-                </div>
+                    <span id="progress-text">0 / 25</span>
+                  </div>
+                  
             </div>
         </div>
         <div class="cta">
@@ -418,6 +423,82 @@
     </script>
 
     <script>
+        fetch('/api/get-user-data')
+            .then(response => response.json())  // Преобразуем ответ в JSON
+            .then(data => {
+            if (data.success) {
+                // Заменяем текст в элементе с id "name"
+                document.getElementById('namee').textContent = data.dataa;
+                console.log('Данные пользователя:', data.dataa);  // Выводим данные в консоль
+            } else {
+                console.error('Ошибка при получении данных пользователя:', data.message);
+            }
+            })
+            .catch(error => {
+            console.error('Ошибка при выполнении запроса:', error);
+            });
+
+
+
+        fetch('/api/get-user-hero')
+            .then(response => response.json())  // Преобразуем ответ в JSON
+            .then(data => {
+            if (data.success) {
+                const selectedHeroId = data.hero;
+                console.log('Selected hero ID:', selectedHeroId);  // Выводим ID героя в консоль
+                
+                // Проверяем ID и обновляем картинку
+                if (selectedHeroId === '1') {
+                document.getElementById('im').src = "./img/luchnica.png";
+                } else if (selectedHeroId === '2') {
+                document.getElementById('im').src = "./img/air_shar.png";
+                } else if (selectedHeroId === '3') {
+                document.getElementById('im').src = "./img/Big_varvar.png";
+                } else if (selectedHeroId === '4') {
+                document.getElementById('im').src = "./img/chempion.png";
+                } else if (selectedHeroId === '5') {
+                document.getElementById('im').src = "./img/hog.png";
+                } else if (selectedHeroId === '6') {
+                document.getElementById('im').src = "./img/king.png";
+                } else if (selectedHeroId === '7') {
+                document.getElementById('im').src = "./img/peka.png";
+                } else if (selectedHeroId === '8') {
+                document.getElementById('im').src = "./img/plazma.png";
+                } else if (selectedHeroId === '9') {
+                document.getElementById('im').src = "./img/valciria.png";
+                } else if (selectedHeroId === '10') {
+                document.getElementById('im').src = "./img/varvar.png";
+                } else if (selectedHeroId === '11') {
+                document.getElementById('im').src = "./img/vedma.png";
+                } else if (selectedHeroId === '12') {
+                document.getElementById('im').src = "./img/velican.png";
+                } else {
+                // Если id персонажа не найден, выводим изображение по умолчанию
+                document.getElementById('im').src = "default.png";
+                }
+            } else {
+                console.error('Ошибка при получении данных героя:', data.message);
+            }
+            })
+            .catch(error => {
+            console.error('Ошибка при выполнении запроса:', error);
+            });
+                
+        fetch('/api/get-user-id')
+            .then(response => response.json())
+            .then(data => {
+                if (data.userId) {
+                    document.getElementById('userId').textContent = data.userId;
+                } else {
+                    document.getElementById('userId').textContent = 'ID пользователя не найден';
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                document.getElementById('userId').textContent = 'Ошибка при получении ID';
+            });
+
+
         // Обработчики модальных окон
         function setupModal(modalId, buttonId) {
             var modal = document.getElementById(modalId);
