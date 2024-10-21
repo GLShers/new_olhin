@@ -690,48 +690,6 @@
                 alert('Произошла ошибка при создании альянса.');
             }
         });
-        async function getAllianceData() {
-            try {
-                // Выполняем GET-запрос для получения данных альянса
-                const response = await fetch('/get_data_allyans');
-
-                if (!response.ok) {
-                    throw new Error('Ошибка при получении данных альянса');
-                }
-
-                // Парсим ответ в формате JSON
-                const data = await response.json();
-
-                // Выводим данные в консоль для проверки
-                console.log('Данные альянса:', data);
-                const zamok =document.getElementById('zamokTitle');
-                const allianceTitleElement = document.getElementById('allianceTitle');
-                const alnsModal = document.getElementById('alns');
-
-                if (data.title) {
-                    // Если title существует, показываем только заголовок
-                    allianceTitleElement.textContent = data.title;
-                    zamok.textContent=data.title;
-                    // Удаляем (или скрываем) остальные элементы в модальном окне
-                    const elementsToHide = alnsModal.querySelectorAll('.search-user, hr, .main-alns');
-                    elementsToHide.forEach(el => el.style.display = 'none');
-                } else {
-                    // Если title не существует, показываем всё окно как есть
-                    allianceTitleElement.textContent = "Наш альянс"; // или любое дефолтное значение
-
-                    // Убеждаемся, что остальные элементы видны
-                    const elementsToShow = alnsModal.querySelectorAll('.search-user, hr, .main-alns');
-                    elementsToShow.forEach(el => el.style.display = 'block');
-                }
-
-            } catch (error) {
-                console.error('Ошибка:', error);
-            }
-        }
-
-
-        // Вызов функции для загрузки данных при открытии страницы или модального окна
-        getAllianceData();
 
 
         // Обработчики модальных окон
@@ -830,39 +788,6 @@
                 joinButton.style.opacity = 0.5;
             }
         }
-
-
-
-
-
-    </script>
-
-
-    <!--для сены цвета задач 1-->
-    <script>
-        document.getElementById("finishButton").addEventListener("click", function () {
-            const item = document.getElementById("zadachi_1Btn"); // Получаем элемент с нужным ID
-            item.style.backgroundColor = "#a5d6a7"; // Изменяем цвет фона на мягкий зелёный
-            item.style.color = "white"; // Изменяем цвет текста на белый для контраста
-
-            // Закрываем модальное окно
-            const modal = document.getElementById("zadachiModal");
-            modal.style.display = "none"; // Скрываем окно
-        });
-    </script>
-
-
-    <!--для сены цвета свободных задач-->
-    <script>
-        document.getElementById("finishButton-svobodnieZadachi").addEventListener("click", function () {
-            const item = document.getElementById("svobodnieZadachi_1Btn"); // Получаем элемент с нужным ID
-            item.style.backgroundColor = "#a5d6a7"; // Изменяем цвет фона на мягкий зелёный
-            item.style.color = "white"; // Изменяем цвет текста на белый для контраста
-
-            // Закрываем модальное окно
-            const modal = document.getElementById("svobodnieZadachiModal");
-            modal.style.display = "none"; // Скрываем окно
-        });
     </script>
 
 
