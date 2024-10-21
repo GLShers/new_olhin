@@ -106,6 +106,7 @@ router.post('/create_allyans', async (req, res) => {
   
 });
 
+
 router.get('/get_data_allyans', async (req, res) => {
   const data = await regService.get_data_allyans(req);
   if (data) {

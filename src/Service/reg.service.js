@@ -108,17 +108,20 @@ class Register {
     return null;
     }
   }
-<<<<<<< HEAD
   async create_allyans(req,res) {
     const { id, title } = req.body;
     const query = `INSERT INTO public.allyans (id,title) VALUES ($1,$2);`
     const values = [id,title];
     const  result = await db.query(query,values);
+    const query_two=`UPDATE public.users SET allyans=$1 WHERE id=$2;`
+    const values_two=[id,req.session.userId[0]]
+    const  result_two = await db.query(query_two,values_two);
     const ress  = result[0];
       
   
     }
   
+
   
   async get_data_allyans(req,res) {     //Извлекать данные из анльянса пользователя
     try {
@@ -131,18 +134,6 @@ class Register {
       console.log(ress.allyans) //для проверки
       const query_get_data_allayns=`SELECT id, lvl, armor, title FROM public.allyans WHERE id=$1;`
       const  values_get_data_allayns=[ress.allyans]
-=======
-async create_allyans(req,res) {            
-  const { id, title } = req.body;
-  const query = `INSERT INTO public.allyans (id,title) VALUES ($1,$2);`
-  const values = [id,title];
-  const  result = await db.query(query,values);
-  const query_two=`UPDATE public.users SET allyans=$1 WHERE id=$2;`
-  const values_two=[id,req.session.userId]
-  const  result_two = await db.query(query_two,values_two);
-  const ress  = result[0];
-    
->>>>>>> 3e5670e (альянс создание и есть)
 
       const  result_data_allyans = await db.query(query_get_data_allayns, values_get_data_allayns);
 
@@ -156,31 +147,15 @@ async create_allyans(req,res) {
     return null;
     }
   }
-  async get_data_allyans(req,res) {     //Извлекать данные из анльянса пользователя
-    try {
-      console.log('Начало выполнения запроса');
-      
-      const query = `SELECT * FROM users WHERE id = $1 `;
-      const values = req.session.userId;
-      const  result = await db.query(query,values);
-      const ress  = result[0];
-      console.log(ress.allyans) //для проверки
-      const query_get_data_allayns=`SELECT id, lvl, armor, title FROM public.allyans WHERE id=$1;`
-      const  values_get_data_allayns=[ress.allyans]
 
-      const  result_data_allyans = await db.query(query_get_data_allayns, values_get_data_allayns);
+  
+  
 
-      const ress_data_allyanss = result_data_allyans[0]
-      console.log(ress_data_allyanss)
-      return ress_data_allyanss
-      
-    }
-     catch (error) {
-    console.error('Ошибка в запросе к базе данных:', error);
-    return null;
-    }
-  }
+
+ 
+  
 }
+
   
   
 
