@@ -293,7 +293,7 @@
                 </div>
                 <div class="progress">
                     <div class="bar">
-                      <div class="fill mana" id="exp" style="width: 0%;"></div>
+                      <div class="fill mana" id="exp" style="width: 10%;"></div>
                     </div>
                     <span id="progress-text">0 / 25</span>
                   </div>
@@ -419,6 +419,37 @@
     </script>
 
     <script>
+        fetch('/api/get-user-hero')
+        .then(response => response.json())  // Преобразуем ответ в JSON
+        .then(data => {
+            try {
+                // Получаем уровень героя (от 1 до 25)
+                const selectedHerolvl = data.hero.lvl;
+
+                // Преобразуем уровень в процентное значение (1 -> 0%, 25 -> 100%)
+                const progress = ((selectedHerolvl - 1) / (25 - 1)) * 100;
+                
+                console.log('Hero Level:', selectedHerolvl);
+                console.log('Progress:', progress + '%');
+
+                // Обновляем ширину элемента на основе прогресса
+                const expElement = document.getElementById('exp');
+                expElement.style.width = `${progress}%`;
+                const progressText = document.getElementById('progress-text');
+                progressText.textContent = `${selectedHerolvl} / 25`;
+            } catch (error) {
+                console.error('Ошибка получения данных:', error);
+            }
+        })
+        .catch(error => {
+            console.error('Ошибка выполнения запроса:', error);
+        });
+
+
+
+
+
+
         fetch('/api/get-user-data')
             .then(response => response.json())  // Преобразуем ответ в JSON
             .then(data => {
@@ -440,7 +471,7 @@
             .then(response => response.json())  // Преобразуем ответ в JSON
             .then(data => {
             if (data.success) {
-                const selectedHeroId = data.hero;
+                const selectedHeroId = data.hero.hero;
                 console.log('Selected hero ID:', selectedHeroId);  // Выводим ID героя в консоль
                 
                 // Проверяем ID и обновляем картинку

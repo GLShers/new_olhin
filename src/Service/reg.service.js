@@ -75,7 +75,7 @@ class Register {
           return { success: false, message: 'Пользователь не найден' };
         }
         console.log(ress.hero)
-        return ress.hero
+        return ress
         
       }
        catch (error) {
