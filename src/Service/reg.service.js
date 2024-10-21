@@ -46,8 +46,10 @@ class Register {
        catch (error) {
       console.error('Ошибка в запросе к базе данных:', error);
       return null;
-    }
-  }
+       }
+      }
+    
+  
 
 
 
@@ -75,7 +77,7 @@ class Register {
           return { success: false, message: 'Пользователь не найден' };
         }
         console.log(ress.hero)
-        return ress.hero
+        return ress
         
       }
        catch (error) {
@@ -104,11 +106,20 @@ class Register {
      catch (error) {
     console.error('Ошибка в запросе к базе данных:', error);
     return null;
+    }
   }
-}
-  
+async create_allyans(req,res) {
+  const { id, title } = req.body;
+  const query = `INSERT INTO public.allyans (id,title) VALUES ($1,$2);`
+  const values = [id,title];
+  const  result = await db.query(query,values);
+  const query_two=`UPDATE public.users SET allyans=$1 WHERE id=$2;`
+  const values_two=[id,req.session.userId]
+  const  result_two = await db.query(query_two,values_two);
+  const ress  = result[0];
     
 
+  }
 }
 
 

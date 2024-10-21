@@ -101,6 +101,13 @@ router.get('/api/get-user-data', async (req, res) => {
   }
 });
 
+router.post('/create_allyans', async (req, res) => {
+  await regService.create_allyans(req);
+  
+});
+
+
+
 
 
 
