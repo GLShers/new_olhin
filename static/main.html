@@ -437,18 +437,21 @@
             try {
                 // Получаем уровень героя (от 1 до 25)
                 const selectedHerolvl = data.hero.lvl;
-
+                const money= data.hero.money
+                const baks=data.hero.baks
                 // Преобразуем уровень в процентное значение (1 -> 0%, 25 -> 100%)
                 const progress = ((selectedHerolvl - 1) / (25 - 1)) * 100;
                 
                 console.log('Hero Level:', selectedHerolvl);
                 console.log('Progress:', progress + '%');
 
-                // Обновляем ширину элемента на основе прогресса
+                // Обновляем ширину элемента на основе рогресса
                 const expElement = document.getElementById('exp');
                 expElement.style.width = `${progress}%`;
                 const progressText = document.getElementById('progress-text');
                 progressText.textContent = `${selectedHerolvl} / 25`;
+                document.getElementById('goldId').textContent = money;
+                document.getElementById('baksId').textContent = baks;
             } catch (error) {
                 console.error('Ошибка получения данных:', error);
             }
@@ -536,6 +539,55 @@
                 console.error('Ошибка:', error);
                 document.getElementById('userId').textContent = 'Ошибка при получении ID';
             });
+        
+
+
+
+
+
+
+
+
+            const createButton = document.getElementById('createButton');
+
+        createButton.addEventListener('click', async () => {
+            const title = document.getElementById('nameAlns').value;
+            const id = document.getElementById('ID').value;
+
+            // Проверка, что ID состоит из 8 цифр
+            if (id.length !== 8 || isNaN(id)) {
+                alert('ID должен состоять из 8 цифр');
+                return;
+            }
+
+            // Создание JSON объекта
+            const data = {
+                id: id,
+                title: title
+            };
+
+            try {
+                // Отправка POST-запроса на сервер
+                const response = await fetch('/create_allyans', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data), // Преобразование объекта в JSON строку
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Альянс успешно создан!');
+                    // Дополнительные действия после успешного создания
+                } else {
+                    alert('Ошибка при создании альянса: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                alert('Произошла ошибка при создании альянса.');
+            }
+        });
 
 
         // Обработчики модальных окон

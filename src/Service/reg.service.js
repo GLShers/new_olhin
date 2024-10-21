@@ -46,8 +46,10 @@ class Register {
        catch (error) {
       console.error('Ошибка в запросе к базе данных:', error);
       return null;
-    }
-  }
+       }
+      }
+    
+  
 
 
 
@@ -104,11 +106,17 @@ class Register {
      catch (error) {
     console.error('Ошибка в запросе к базе данных:', error);
     return null;
+    }
   }
-}
-  
+async create_allyans(req,res) {
+  const { id, title } = req.body;
+  const query = `INSERT INTO public.allyans (id,title) VALUES ($1,$2);`
+  const values = [id,title];
+  const  result = await db.query(query,values);
+  const ress  = result[0];
     
 
+  }
 }
 
 
