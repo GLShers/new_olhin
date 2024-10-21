@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<!--jjnjkn-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management</title>
+    <link href="css/main.css" rel="stylesheet" />
+</head>
+
+<body>
+    <div class="header">
+        <div class="logo">
+            <h2 class="logotip"><a href="#">OIhin</a></h2>
+            <img alt="Logo" src="img/logo.png" />
+            <nav>
+                <a href="#">Задачи</a>
+                <a href="#" id="inventaryBtn">Инвентарь</a> <!-- Кнопка для инвентаря -->
+                <a href="#" id="shopBtn">Лавка</a>
+                <a href="#" id="allianceBtn">Альянс</a>
+                <a href="#" id="zamokBtn">Замок</a>
+                <a href="#">Помощь</a>
+            </nav>
+        </div>
+        <div class="user-info">
+            <img src="img/free-icon-flying-money-10017650.png" alt="баксы" class="baks" id="img-baks">
+            <label for="baks" id="baksId">55</label>
+            <img src="img/free-icon-gold-ingot-10021774.png" alt="gold" class="gold">
+            <label for="gold" id="goldId">7</label>
+        </div>
+    </div>
+
+
+    <!-- Модальное окно Инвентаря -->
+    <div class="modal" id="inventaryModal">
+        <div class="modal-content" id="inventary">
+            <span class="close">&times;</span>
+
+            <div class="header-inventary">
+                <img src="img/inventory-left.png" alt="Инвентарь" class="img-inventary">
+                <h2>Инвентарь</h2>
+                <img src="img/inventory-right.png" alt="Инвентарь" class="img-inventary">
+            </div>
+
+            <hr class="inventary-line">
+
+            <div class="main-inventary">
+                <div class="inventory-left">
+                    <button class="inventory-btn" id="btn-defense">Защита</button>
+                    <button class="inventory-btn" id="btn-weapon">Оружие</button>
+                </div>
+
+                <div class="vertical-line"></div>
+
+                <div class="inventory-right">
+                    <div id="defense-inventory" class="inventory-category">
+                        <img src="img/item-defense1.png" alt="Иконка защиты" class="inventory-item">
+                        <img src="img/item-defense2.png" alt="Иконка защиты" class="inventory-item">
+                        <img src="img/item-defense1.png" alt="Иконка защиты" class="inventory-item">
+                        <img src="img/item-defense2.png" alt="Иконка защиты" class="inventory-item">
+                        <img src="img/item-defense1.png" alt="Иконка защиты" class="inventory-item">
+                        <img src="img/item-defense2.png" alt="Иконка защиты" class="inventory-item">
+                        <img src="img/item-defense1.png" alt="Иконка защиты" class="inventory-item">
+                        <img src="img/item-defense2.png" alt="Иконка защиты" class="inventory-item">
+                        <img src="img/item-defense1.png" alt="Иконка защиты" class="inventory-item">
+                        <img src="img/item-defense2.png" alt="Иконка защиты" class="inventory-item">
+                    </div>
+                    <div id="weapon-inventory" class="inventory-category" style="display: none;">
+                        <img src="img/item-weapon1.png" alt="Иконка оружия" class="inventory-item">
+                        <img src="img/item-weapon2.png" alt="Иконка оружия" class="inventory-item">
+                        <img src="img/item-weapon1.png" alt="Иконка оружия" class="inventory-item">
+                        <img src="img/item-weapon2.png" alt="Иконка оружия" class="inventory-item">
+                        <img src="img/item-weapon1.png" alt="Иконка оружия" class="inventory-item">
+                        <img src="img/item-weapon2.png" alt="Иконка оружия" class="inventory-item">
+                        <img src="img/item-weapon1.png" alt="Иконка оружия" class="inventory-item">
+                        <img src="img/item-weapon2.png" alt="Иконка оружия" class="inventory-item">
+                        <img src="img/item-weapon1.png" alt="Иконка оружия" class="inventory-item">
+                        <img src="img/item-weapon2.png" alt="Иконка оружия" class="inventory-item">
+                    </div>
+                </div>
+                <div class="vertical-line"></div>
+                <div class="large-photo-container">
+                    <img src="img/chempion.png" alt="Большая фотография" class="large-photo">
+                </div>
+                <div class="small-photos-container">
+                    <img src="img/free-icon-gold-ingot-10021774.png" alt="Маленькая фотография 1" class="small-photo">
+                    <img src="img/free-icon-gold-ingot-10021774.png" alt="Маленькая фотография 2" class="small-photo">
+                    <img src="img/free-icon-gold-ingot-10021774.png" alt="Маленькая фотография 3" class="small-photo">
+                    <img src="img/free-icon-gold-ingot-10021774.png" alt="Маленькая фотография 4" class="small-photo">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно Замок -->
+    <div class="modal" id="zamokModal">
+        <div class="modal-content" id="zamok">
+            <span class="close">&times;</span>
+            <div class="header-zamok">
+                <h2>Наш замок</h2>
+            </div>
+            <hr>
+            <div class="main-zamok">
+                <div class="zamok-left">
+                    <label for="zamok-level">Уровень замка: </label>
+                    <label for="zamok-level" id="zamok-level">1</label><br>
+                    <label for="zamok-strong">Сила замка: </label>
+                    <label id="zamok-strong" class="zamok-strong">0</label><br>
+                    <label for="zamok-armor">Броня замка: </label>
+                    <label id="zamok-armor" class="zamok-armor">0</label><br>
+                    <label for="zamok-people">Количество игроков: </label>
+                    <label id="zamok-people" class="zamok-people">0</label>
+                </div>
+                <hr class="vertical-line">
+                <div class="zamok-right">
+                    <img src="img/zamok.png" alt="Замок" class="zamok-img">
+                    <div class="progress">
+                        <div class="bar">
+                            <div class="fill mana-zamok" id="exp-zamok" style="width: 50%;"></div>
+                        </div>
+                        <span id="progress-text-zamok">0 / 25</span>
+                    </div>
+                    <div class="name-zamok-label">
+                        <label for="zamok-name">Название замка</label>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+    <!-- Всплывающее окно Альянса -->
+    <div id="allianceModal" class="modal">
+        <div class="modal-content" id="alns">
+            <span class="close">&times;</span>
+            <div class="alns-header">
+                <img src="img/1515044126_preview_465f9307bf1b8-edited-free (carve.photos).png" alt="герб" class="gerb">
+                <h2>Наш альянс</h2>
+                <img src="img/1515044126_preview_465f9307bf1b8-edited-free (carve.photos).png" alt="герб" class="gerb">
+            </div>
+            <hr>
+            <div class="search-user">
+                <a href="#" class="registr-alns" id="registrAlnsModalBtn">
+                    <span class="text-alns">Создать</span>
+                </a>
+                <!-- Всплывающее окно создания альянса -->
+                <div id="registrAlnsModal" class="modal">
+                    <div class="modal-content" id="registrAlns">
+                        <div class="window-registrAlns">
+                            <span class="close">&times;</span>
+                            <div class="registrAlns-header">
+                                <h2>Создать альянс</h2>
+                            </div>
+                            <div class="main-registrAlns">
+                                <h4>Введите название вашего альянса</h4>
+                                <input type="text" id="nameAlns" name="nameAlns" placeholder="Название альянса"
+                                    class="name-registrAlns">
+                                <h4>Введите ID для создания альянса</h4>
+                                <input type="text" id="ID" name="ID" placeholder="ID должен состоять из 8 цифр"
+                                    class="ID-registrAlns" maxlength="8">
+                                <div class="button-container">
+                                    <a href="#" class="registr-alns" id="createButton"
+                                        style="pointer-events: none; opacity: 0.5;">
+                                        <span class="text-alns">Создать</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form>
+                    <input type="text" id="name" name="name" placeholder="Введите имя пользователя"
+                        class="user-name-input">
+                </form>
+                <a href="#" class="search-button">
+                    <img src="img/free-icon-magnifying-glass-8437963-no-bg-preview (carve.photos).png" alt="search"
+                        class="button-search-img">
+                </a>
+                <a href="#" class="join-alns" id="joinAlnsModalBtn">
+                    <span class="text-alns">Вступить</span>
+                </a>
+                <!--Копка Покинуть альянс-->
+                <!--<a href="#" class="exit-alns" id="exitAlnsModalBtn">
+                    <span class="text-alns">Покинуть</span>
+                </a>-->
+
+
+                <!-- Всплывающее окно вступления в альянс -->
+                <div id="joinAlnsModal" class="modal">
+                    <div class="modal-content" id="joinAlns">
+                        <div class="window-joinAlns">
+                            <span class="close">&times;</span>
+                            <div class="joinAlns-header">
+                                <h2>Вступить альянс</h2>
+                            </div>
+                            <div class="main-joinrAlns">
+                                <h4>Введите ID для вступления в альянс</h4>
+                                <input type="text" id="joinID" name="ID" placeholder="ID должен состоять из 8 цифр"
+                                    class="ID-registrAlns" maxlength="8">
+                                <div class="button-container">
+                                    <a href="#" class="join-alns" id="joinButton"
+                                        style="pointer-events: none; opacity: 0.5;">
+                                        <span class="text-alns">Вступить</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-alns">
+                <button class="user">
+                    <img src="img/chempion.png" alt="user" id="user-img">
+                    <label class="user-name">
+                        <h2>Смирнов Артём Михайлович</h2>
+                    </label>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Модальное окно Лавки -->
+    <div id="shopModal" class="modal">
+        <div class="window">
+            <span class="close">&times;</span> <!-- Убедитесь, что элемент закрытия имеет класс 'close' -->
+            <div class="lavka">
+                <h2 class="window-title">Лавка</h2>
+                <h3>купите у нас вещь чтобы<br> прокачать своего игрока!</h3>
+                <img src="img/lavka.png" alt="лавка" class="lavka-img">
+            </div>
+            <hr>
+            <div class="buttons-container">
+                <!-- Создаём 12 кнопок -->
+                <button class="character-button">
+                    <img src="img/luchnica.png" alt="лучница" class="character-image">
+                    Персонаж 1
+                </button>
+                <button class="character-button">
+                    <img src="img/air_shar.png" alt="персонаж 2" class="character-image">
+                    Персонаж 2
+                </button>
+                <button class="character-button">
+                    <img src="img/Big_varvar.png" alt="персонаж 3" class="character-image">
+                    Персонаж 3
+                </button>
+                <button class="character-button">
+                    <img src="img/chempion.png" alt="персонаж 4" class="character-image">
+                    Персонаж 4
+                </button>
+                <button class="character-button">
+                    <img src="img/hog.png" alt="персонаж 5" class="character-image">
+                    Персонаж 5
+                </button>
+                <button class="character-button">
+                    <img src="img/king.png" alt="персонаж 6" class="character-image">
+                    Персонаж 6
+                </button>
+                <button class="character-button">
+                    <img src="img/peka.png" alt="персонаж 7" class="character-image">
+                    Персонаж 7
+                </button>
+                <button class="character-button">
+                    <img src="img/plazma.png" alt="персонаж 8" class="character-image">
+                    Персонаж 8
+                </button>
+                <button class="character-button">
+                    <img src="img/valciria.png" alt="персонаж 9" class="character-image">
+                    Персонаж 9
+                </button>
+                <button class="character-button">
+                    <img src="img/varvar.png" alt="персонаж 10" class="character-image">
+                    Персонаж 10
+                </button>
+                <button class="character-button">
+                    <img src="img/vedma.png" alt="персонаж 11" class="character-image">
+                    Персонаж 11
+                </button>
+                <button class="character-button">
+                    <img src="img/velican.png" alt="персонаж 12" class="character-image">
+                    Персонаж 12
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="profile">
+            <img id="im" alt="Profile Picture" src="default.png" />
+            <div class="details">
+                <span class="name" id="namee">logo2355</span>
+                <span id="userId">Загрузка...</span>
+                <div class="level">@logo2355 - Уровень 1 Воин</div>
+                <div class="strong">Сила - 5
+                    <pre></pre>Опыт:
+                </div>
+                <div class="progress">
+                    <div class="bar">
+                      <div class="fill mana" id="exp" style="width: 0%;"></div>
+                    </div>
+                    <span id="progress-text">0 / 25</span>
+                </div>
+
+            </div>
+        </div>
+        <div class="cta">
+            <p>Побеждайте монстров с друзьями</p>
+            <p>Создайте свою собственную команду или присоединитесь к уже существующей для выполнения заданий и
+                повышения мотивации!</p>
+            <button>Начать</button>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="columns">
+            <div class="column">
+                <h3>Задачи:</h3>
+                <div class="item">
+                    <div class="text">Нажмите, чтобы сделать эту задачу</div>
+                    <small>Или удалите её</small>
+                    <div class="actions">
+                        <div class="icon">
+                            <i class="fas fa-minus"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="text">Добавить задачу</div>
+                    <small>Либо привычка, либо ежедневное задание, либо задача</small>
+                    <div class="actions">
+                        <div class="icon">
+                            <i class="fas fa-minus"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <h3>Свободные задачи:</h3>
+                <div class="item">
+                    <div class="text">Это ваши ежедневные дела</div>
+                    <small>Ежедневные дела повторяются регулярно. Настройте расписание по вашему усмотрению.</small>
+                </div>
+            </div>
+            <div class="column">
+                <h3>Задачи <span>(1)</span></h3>
+                <div class="add-item">Добавить задачу</div>
+                <div class="item">
+                    <div class="text">Присоединиться к Habitica</div>
+                    <small>Вы можете завершить эту задачу, отредактировать её или удалить.</small>
+                    <div class="actions">
+                        <div class="icon">
+                            <i class="fas fa-minus"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <h3>Награды</h3>
+                <div class="add-item">Добавить награду</div>
+                <div class="item">
+                    <div class="text">Награди себя</div>
+                    <small>Смотрите телевизор, играйте в игры, кушайте вкусняшки, вам решать!</small>
+                    <div class="actions">
+                        <div class="icon">
+                            <i class="fas fa-coins"></i>
+                            <span>10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="text">
+                        <img alt="Banana" src="https://placehold.co/40x40" />
+                    </div>
+                    <div class="actions">
+                        <i class="fas fa-coins"></i>
+                        <span>90</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="text">
+                        <img alt="Butterfly" src="https://placehold.co/40x40" />
+                    </div>
+                    <div class="actions">
+                        <i class="fas fa-coins"></i>
+                        <span>90</span>
+                    </div>
+                </div>
+                <div class="item">
+                    <div class="text">
+                        <img alt="Ram" src="https://placehold.co/40x40" />
+                    </div>
+                    <div class="actions">
+                        <i class="fas fa-coins"></i>
+                        <span>60</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="img">
+            <img src="img/rycar.png" alt="описание изображения" />
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const defenseBtn = document.getElementById('btn-defense');
+            const weaponBtn = document.getElementById('btn-weapon');
+            const defenseInventory = document.getElementById('defense-inventory');
+            const weaponInventory = document.getElementById('weapon-inventory');
+
+            defenseBtn.addEventListener('click', function () {
+                defenseInventory.style.display = 'flex';
+                weaponInventory.style.display = 'none';
+            });
+
+            weaponBtn.addEventListener('click', function () {
+                defenseInventory.style.display = 'none';
+                weaponInventory.style.display = 'flex';
+            });
+        });
+
+    </script>
+
+    <script>
+        fetch('/api/get-user-hero')
+        .then(response => response.json())  // Преобразуем ответ в JSON
+        .then(data => {
+            try {
+                // Получаем уровень героя (от 1 до 25)
+                const selectedHerolvl = data.hero.lvl;
+                const money= data.hero.money
+                const baks=data.hero.baks
+                // Преобразуем уровень в процентное значение (1 -> 0%, 25 -> 100%)
+                const progress = ((selectedHerolvl - 1) / (25 - 1)) * 100;
+                
+                console.log('Hero Level:', selectedHerolvl);
+                console.log('Progress:', progress + '%');
+
+                // Обновляем ширину элемента на основе рогресса
+                const expElement = document.getElementById('exp');
+                expElement.style.width = `${progress}%`;
+                const progressText = document.getElementById('progress-text');
+                progressText.textContent = `${selectedHerolvl} / 25`;
+                document.getElementById('goldId').textContent = money;
+                document.getElementById('baksId').textContent = baks;
+            } catch (error) {
+                console.error('Ошибка получения данных:', error);
+            }
+        })
+        .catch(error => {
+            console.error('Ошибка выполнения запроса:', error);
+        });
+
+
+
+
+
+
+        fetch('/api/get-user-data')
+            .then(response => response.json())  // Преобразуем ответ в JSON
+            .then(data => {
+                if (data.success) {
+                    // Заменяем текст в элементе с id "name"
+                    document.getElementById('namee').textContent = data.dataa;
+                    console.log('Данные пользователя:', data.dataa);  // Выводим данные в консоль
+                } else {
+                    console.error('Ошибка при получении данных пользователя:', data.message);
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка при выполнении запроса:', error);
+            });
+
+
+
+        fetch('/api/get-user-hero')
+            .then(response => response.json())  // Преобразуем ответ в JSON
+            .then(data => {
+            if (data.success) {
+                const selectedHeroId = data.hero.hero;
+                console.log('Selected hero ID:', selectedHeroId);  // Выводим ID героя в консоль
+                
+                // Проверяем ID и обновляем картинку
+                if (selectedHeroId === '1') {
+                document.getElementById('im').src = "./img/luchnica.png";
+                } else if (selectedHeroId === '2') {
+                document.getElementById('im').src = "./img/air_shar.png";
+                } else if (selectedHeroId === '3') {
+                document.getElementById('im').src = "./img/Big_varvar.png";
+                } else if (selectedHeroId === '4') {
+                document.getElementById('im').src = "./img/chempion.png";
+                } else if (selectedHeroId === '5') {
+                document.getElementById('im').src = "./img/hog.png";
+                } else if (selectedHeroId === '6') {
+                document.getElementById('im').src = "./img/king.png";
+                } else if (selectedHeroId === '7') {
+                document.getElementById('im').src = "./img/peka.png";
+                } else if (selectedHeroId === '8') {
+                document.getElementById('im').src = "./img/plazma.png";
+                } else if (selectedHeroId === '9') {
+                document.getElementById('im').src = "./img/valciria.png";
+                } else if (selectedHeroId === '10') {
+                document.getElementById('im').src = "./img/varvar.png";
+                } else if (selectedHeroId === '11') {
+                document.getElementById('im').src = "./img/vedma.png";
+                } else if (selectedHeroId === '12') {
+                document.getElementById('im').src = "./img/velican.png";
+                } else {
+                // Если id персонажа не найден, выводим изображение по умолчанию
+                document.getElementById('im').src = "default.png";
+                }
+            } else {
+                console.error('Ошибка при получении данных героя:', data.message);
+            }
+            })
+            .catch(error => {
+                console.error('Ошибка при выполнении запроса:', error);
+            });
+
+        fetch('/api/get-user-id')
+            .then(response => response.json())
+            .then(data => {
+                if (data.userId) {
+                    document.getElementById('userId').textContent = data.userId;
+                } else {
+                    document.getElementById('userId').textContent = 'ID пользователя не найден';
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка:', error);
+                document.getElementById('userId').textContent = 'Ошибка при получении ID';
+            });
+        
+
+
+
+
+
+
+
+
+            const createButton = document.getElementById('createButton');
+
+        createButton.addEventListener('click', async () => {
+            const title = document.getElementById('nameAlns').value;
+            const id = document.getElementById('ID').value;
+
+            // Проверка, что ID состоит из 8 цифр
+            if (id.length !== 8 || isNaN(id)) {
+                alert('ID должен состоять из 8 цифр');
+                return;
+            }
+
+            // Создание JSON объекта
+            const data = {
+                id: id,
+                title: title
+            };
+
+            try {
+                // Отправка POST-запроса на сервер
+                const response = await fetch('/create_allyans', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data), // Преобразование объекта в JSON строку
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Альянс успешно создан!');
+                    // Дополнительные действия после успешного создания
+                } else {
+                    alert('Ошибка при создании альянса: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                alert('Произошла ошибка при создании альянса.');
+            }
+        });
+
+
+        // Обработчики модальных окон
+        function setupModal(modalId, buttonId) {
+            var modal = document.getElementById(modalId);
+            var btn = document.getElementById(buttonId);
+            var closeBtn = modal.querySelector(".close");
+
+            // Открытие модального окна
+            btn.onclick = function (event) {
+                event.preventDefault();
+                modal.classList.add("show");
+            };
+
+            // Закрытие модального окна при нажатии на крестик
+            closeBtn.onclick = function () {
+                modal.classList.remove("show");
+            };
+
+            // Закрытие модального окна при нажатии вне окна
+            window.onclick = function (event) {
+                if (event.target === modal) {
+                    modal.classList.remove("show");
+                }
+            };
+        }
+
+        // Настройка всех модальных окон
+        setupModal("allianceModal", "allianceBtn");
+        setupModal("registrAlnsModal", "registrAlnsModalBtn");
+        setupModal("joinAlnsModal", "joinAlnsModalBtn");
+        setupModal("inventaryModal", "inventaryBtn"); // Инвентарь
+        setupModal("shopModal", "shopBtn"); // Лавка
+        setupModal("zamokModal", "zamokBtn"); // Лавка
+
+
+        // Обработчик для кнопки "Создать альянс"
+        document.getElementById("registrAlnsModalBtn").onclick = function (event) {
+            event.preventDefault();
+            document.getElementById("registrAlnsModal").classList.add("show"); // Открываем "Создать альянс"
+        };
+
+        // Обработчик для кнопки "Создать" в окне регистрации альянса
+        document.getElementById("createButton").onclick = function (event) {
+            event.preventDefault();
+            document.getElementById("registrAlnsModal").classList.remove("show"); // Закрываем окно регистрации альянса
+        };
+
+        // Проверка для создания альянса
+        document.getElementById("ID").addEventListener("input", function () {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            checkCreateInput();
+        });
+
+        document.getElementById("nameAlns").addEventListener("input", checkCreateInput);
+
+        function checkCreateInput() {
+            const nameAlns = document.getElementById("nameAlns").value;
+            const ID = document.getElementById("ID").value;
+            const createButton = document.getElementById("createButton");
+
+            if (nameAlns.trim() !== "" && ID.length === 8) {
+                createButton.style.pointerEvents = 'auto';
+                createButton.style.opacity = 1;
+            } else {
+                createButton.style.pointerEvents = 'none';
+                createButton.style.opacity = 0.5;
+            }
+        }
+
+        // Обработчик для кнопки "Вступить"
+        document.getElementById("joinButton").onclick = function (event) {
+            event.preventDefault();
+            document.getElementById("joinAlnsModal").classList.remove("show"); // Закрываем окно вступления в альянс
+        };
+
+        // Проверка для вступления в альянс
+        document.getElementById("joinID").addEventListener("input", function () {
+            this.value = this.value.replace(/[^0-9]/g, '');
+            checkJoinInput();
+        });
+
+        function checkJoinInput() {
+            const ID = document.getElementById("joinID").value;
+            const joinButton = document.getElementById("joinButton");
+
+            if (ID.length === 8) {
+                joinButton.style.pointerEvents = 'auto';
+                joinButton.style.opacity = 1;
+            } else {
+                joinButton.style.pointerEvents = 'none';
+                joinButton.style.opacity = 0.5;
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

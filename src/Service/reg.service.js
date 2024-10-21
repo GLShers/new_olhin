@@ -113,6 +113,9 @@ async create_allyans(req,res) {
   const query = `INSERT INTO public.allyans (id,title) VALUES ($1,$2);`
   const values = [id,title];
   const  result = await db.query(query,values);
+  const query_two=`UPDATE public.users SET allyans=$1 WHERE id=$2;`
+  const values_two=[id,req.session.userId]
+  const  result_two = await db.query(query_two,values_two);
   const ress  = result[0];
     
 
