@@ -152,6 +152,25 @@ html, body {
     left: 0; /* Выровнено по левому краю */
 }
 
+#img-baks{
+    height: 45px;
+    width: auto;
+    margin-right: 50px;
+}
+
+.gold{
+    height: 40px;
+    width: auto;
+}
+
+.user-info{
+    margin-right: 70px;
+}
+
+#baksId {
+    text-align: left;
+
+}
 
 .main .cta button {
     background-color: #6200ea;
