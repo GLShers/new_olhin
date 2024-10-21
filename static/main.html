@@ -307,7 +307,7 @@
                 </div>
                 <div class="progress">
                     <div class="bar">
-                      <div class="fill mana" id="exp" style="width: 0%;"></div>
+                        <div class="fill mana" id="exp" style="width: 0%;"></div>
                     </div>
                     <span id="progress-text">0 / 25</span>
                 </div>
@@ -322,94 +322,164 @@
         </div>
     </div>
 
+
+
     <div class="content">
         <div class="columns">
             <div class="column">
-                <h3>Задачи:</h3>
-                <div class="item">
-                    <div class="text">Нажмите, чтобы сделать эту задачу</div>
-                    <small>Или удалите её</small>
-                    <div class="actions">
-                        <div class="icon">
-                            <i class="fas fa-minus"></i>
-                        </div>
+                <div class="zadachi_1">
+                    <h3>Задачи:</h3>
+                    <div class="item" id="zadachi_1Btn"><!--Замена ID-->
+                        <div class="text">Нажмите, чтобы сделать эту задачу</div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="text">Добавить задачу</div>
-                    <small>Либо привычка, либо ежедневное задание, либо задача</small>
-                    <div class="actions">
-                        <div class="icon">
-                            <i class="fas fa-minus"></i>
-                        </div>
+                    <div class="item">
+                        <div class="text">Нажмите, чтобы сделать эту задачу</div>
                     </div>
-                </div>
-            </div>
-            <div class="column">
-                <h3>Свободные задачи:</h3>
-                <div class="item">
-                    <div class="text">Это ваши ежедневные дела</div>
-                    <small>Ежедневные дела повторяются регулярно. Настройте расписание по вашему усмотрению.</small>
-                </div>
-            </div>
-            <div class="column">
-                <h3>Задачи <span>(1)</span></h3>
-                <div class="add-item">Добавить задачу</div>
-                <div class="item">
-                    <div class="text">Присоединиться к Habitica</div>
-                    <small>Вы можете завершить эту задачу, отредактировать её или удалить.</small>
-                    <div class="actions">
-                        <div class="icon">
-                            <i class="fas fa-minus"></i>
-                        </div>
+                    <div class="item">
+                        <div class="text">Нажмите, чтобы сделать эту задачу</div>
                     </div>
-                </div>
-            </div>
-            <div class="column">
-                <h3>Награды</h3>
-                <div class="add-item">Добавить награду</div>
-                <div class="item">
-                    <div class="text">Награди себя</div>
-                    <small>Смотрите телевизор, играйте в игры, кушайте вкусняшки, вам решать!</small>
-                    <div class="actions">
-                        <div class="icon">
-                            <i class="fas fa-coins"></i>
-                            <span>10</span>
-                        </div>
+                    <div class="item">
+                        <div class="text">Нажмите, чтобы сделать эту задачу</div>
                     </div>
-                </div>
-                <div class="item">
-                    <div class="text">
-                        <img alt="Banana" src="https://placehold.co/40x40" />
+                    <div class="item">
+                        <div class="text">Нажмите, чтобы сделать эту задачу</div>
                     </div>
-                    <div class="actions">
-                        <i class="fas fa-coins"></i>
-                        <span>90</span>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="text">
-                        <img alt="Butterfly" src="https://placehold.co/40x40" />
-                    </div>
-                    <div class="actions">
-                        <i class="fas fa-coins"></i>
-                        <span>90</span>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="text">
-                        <img alt="Ram" src="https://placehold.co/40x40" />
-                    </div>
-                    <div class="actions">
-                        <i class="fas fa-coins"></i>
-                        <span>60</span>
+                    <div class="item">
+                        <div class="text">Нажмите, чтобы сделать эту задачу</div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="img">
-            <img src="img/rycar.png" alt="описание изображения" />
+    </div>
+
+    <!-- Модальное окно Лавки -->
+    <div id="zadachiModal" class="modal">
+        <div class="window-zadachi">
+            <div class="zadachi-1-vsp">
+                <span class="close">&times;</span>
+                <h2 class="window-title">Название Задачи</h2>
+                <hr>
+                <div class="window-for-text" id="outputText">
+                    <!--Текст для примера-->
+                    <p>Лицевой защитный щиток электросварщика Калибр МСХ-13-3ЕП 00000059160 применяется для защиты лица
+                        и глаз от искр, брызг и вредного излучения сварочной дуги в процессе сварки ММА, МIG-MAG и TIG.
+                        Светофильтр автоматически затемняется и возвращается к исходному состоянию.
+
+                        Предусмотрена возможность регулировки длины и высоты наголовника - для лучшей посадки щитка на
+                        голове.
+
+                        В качестве источника питания используются солнечная батарея (имеющая функцию автовыключения
+                        через 15-20 минут) и встроенная щелочная батарея.
+
+                        Скорость измерения светофильтра составляет 1/15000 секунды.
+                        Лицевой защитный щиток электросварщика Калибр МСХ-13-3ЕП 00000059160 применяется для защиты лица
+                        и глаз от искр, брызг и вредного излучения сварочной дуги в процессе сварки ММА, МIG-MAG и TIG.
+                        Светофильтр автоматически затемняется и возвращается к исходному состоянию.
+
+                        Предусмотрена возможность регулировки длины и высоты наголовника - для лучшей посадки щитка на
+                        голове.
+
+                        В качестве источника питания используются солнечная батарея (имеющая функцию автовыключения
+                        через 15-20 минут) и встроенная щелочная батарея.
+
+                        Скорость измерения светофильтра составляет 1/15000 секунды.
+
+
+                        Лицевой защитный щиток электросварщика Калибр МСХ-13-3ЕП 00000059160 применяется для защиты лица
+                        и глаз от искр, брызг и вредного излучения сварочной дуги в процессе сварки ММА, МIG-MAG и TIG.
+                        Светофильтр автоматически затемняется и возвращается к исходному состоянию.
+
+                        Предусмотрена возможность регулировки длины и высоты наголовника - для лучшей посадки щитка на
+                        голове.
+
+                        В качестве источника питания используются солнечная батарея (имеющая функцию автовыключения
+                        через 15-20 минут) и встроенная щелочная батарея.
+
+                        Скорость измерения светофильтра составляет 1/15000 секунды.
+
+
+
+                    </p>
+                </div>
+
+                <div class="zadachi-button">
+                    <button class="finish" id="finishButton">Завершить</button>
+                </div>
+
+            </div>
         </div>
+    </div>
+
+
+
+
+
+
+    <div class="column">
+        <h3>Свободные задачи:</h3>
+        <div class="item">
+            <div class="text">Это ваши ежедневные дела</div>
+            <small>Ежедневные дела повторяются регулярно. Настройте расписание по вашему усмотрению.</small>
+        </div>
+    </div>
+    <div class="column">
+        <h3>Задачи <span>(1)</span></h3>
+        <div class="add-item">Добавить задачу</div>
+        <div class="item">
+            <div class="text">Присоединиться к Habitica</div>
+            <small>Вы можете завершить эту задачу, отредактировать её или удалить.</small>
+            <div class="actions">
+                <div class="icon">
+                    <i class="fas fa-minus"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="column">
+        <h3>Награды</h3>
+        <div class="add-item">Добавить награду</div>
+        <div class="item">
+            <div class="text">Награди себя</div>
+            <small>Смотрите телевизор, играйте в игры, кушайте вкусняшки, вам решать!</small>
+            <div class="actions">
+                <div class="icon">
+                    <i class="fas fa-coins"></i>
+                    <span>10</span>
+                </div>
+            </div>
+        </div>
+        <div class="item">
+            <div class="text">
+                <img alt="Banana" src="https://placehold.co/40x40" />
+            </div>
+            <div class="actions">
+                <i class="fas fa-coins"></i>
+                <span>90</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="text">
+                <img alt="Butterfly" src="https://placehold.co/40x40" />
+            </div>
+            <div class="actions">
+                <i class="fas fa-coins"></i>
+                <span>90</span>
+            </div>
+        </div>
+        <div class="item">
+            <div class="text">
+                <img alt="Ram" src="https://placehold.co/40x40" />
+            </div>
+            <div class="actions">
+                <i class="fas fa-coins"></i>
+                <span>60</span>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="img">
+        <img src="img/rycar.png" alt="описание изображения" />
+    </div>
     </div>
 
     <script>
@@ -434,33 +504,33 @@
 
     <script>
         fetch('/api/get-user-hero')
-        .then(response => response.json())  // Преобразуем ответ в JSON
-        .then(data => {
-            try {
-                // Получаем уровень героя (от 1 до 25)
-                const selectedHerolvl = data.hero.lvl;
-                const money= data.hero.money
-                const baks=data.hero.baks
-                // Преобразуем уровень в процентное значение (1 -> 0%, 25 -> 100%)
-                const progress = ((selectedHerolvl - 1) / (25 - 1)) * 100;
-                
-                console.log('Hero Level:', selectedHerolvl);
-                console.log('Progress:', progress + '%');
+            .then(response => response.json())  // Преобразуем ответ в JSON
+            .then(data => {
+                try {
+                    // Получаем уровень героя (от 1 до 25)
+                    const selectedHerolvl = data.hero.lvl;
+                    const money = data.hero.money
+                    const baks = data.hero.baks
+                    // Преобразуем уровень в процентное значение (1 -> 0%, 25 -> 100%)
+                    const progress = ((selectedHerolvl - 1) / (25 - 1)) * 100;
 
-                // Обновляем ширину элемента на основе рогресса
-                const expElement = document.getElementById('exp');
-                expElement.style.width = `${progress}%`;
-                const progressText = document.getElementById('progress-text');
-                progressText.textContent = `${selectedHerolvl} / 25`;
-                document.getElementById('goldId').textContent = money;
-                document.getElementById('baksId').textContent = baks;
-            } catch (error) {
-                console.error('Ошибка получения данных:', error);
-            }
-        })
-        .catch(error => {
-            console.error('Ошибка выполнения запроса:', error);
-        });
+                    console.log('Hero Level:', selectedHerolvl);
+                    console.log('Progress:', progress + '%');
+
+                    // Обновляем ширину элемента на основе рогресса
+                    const expElement = document.getElementById('exp');
+                    expElement.style.width = `${progress}%`;
+                    const progressText = document.getElementById('progress-text');
+                    progressText.textContent = `${selectedHerolvl} / 25`;
+                    document.getElementById('goldId').textContent = money;
+                    document.getElementById('baksId').textContent = baks;
+                } catch (error) {
+                    console.error('Ошибка получения данных:', error);
+                }
+            })
+            .catch(error => {
+                console.error('Ошибка выполнения запроса:', error);
+            });
 
 
 
@@ -487,42 +557,42 @@
         fetch('/api/get-user-hero')
             .then(response => response.json())  // Преобразуем ответ в JSON
             .then(data => {
-            if (data.success) {
-                const selectedHeroId = data.hero.hero;
-                console.log('Selected hero ID:', selectedHeroId);  // Выводим ID героя в консоль
-                
-                // Проверяем ID и обновляем картинку
-                if (selectedHeroId === '1') {
-                document.getElementById('im').src = "./img/luchnica.png";
-                } else if (selectedHeroId === '2') {
-                document.getElementById('im').src = "./img/air_shar.png";
-                } else if (selectedHeroId === '3') {
-                document.getElementById('im').src = "./img/Big_varvar.png";
-                } else if (selectedHeroId === '4') {
-                document.getElementById('im').src = "./img/chempion.png";
-                } else if (selectedHeroId === '5') {
-                document.getElementById('im').src = "./img/hog.png";
-                } else if (selectedHeroId === '6') {
-                document.getElementById('im').src = "./img/king.png";
-                } else if (selectedHeroId === '7') {
-                document.getElementById('im').src = "./img/peka.png";
-                } else if (selectedHeroId === '8') {
-                document.getElementById('im').src = "./img/plazma.png";
-                } else if (selectedHeroId === '9') {
-                document.getElementById('im').src = "./img/valciria.png";
-                } else if (selectedHeroId === '10') {
-                document.getElementById('im').src = "./img/varvar.png";
-                } else if (selectedHeroId === '11') {
-                document.getElementById('im').src = "./img/vedma.png";
-                } else if (selectedHeroId === '12') {
-                document.getElementById('im').src = "./img/velican.png";
+                if (data.success) {
+                    const selectedHeroId = data.hero.hero;
+                    console.log('Selected hero ID:', selectedHeroId);  // Выводим ID героя в консоль
+
+                    // Проверяем ID и обновляем картинку
+                    if (selectedHeroId === '1') {
+                        document.getElementById('im').src = "./img/luchnica.png";
+                    } else if (selectedHeroId === '2') {
+                        document.getElementById('im').src = "./img/air_shar.png";
+                    } else if (selectedHeroId === '3') {
+                        document.getElementById('im').src = "./img/Big_varvar.png";
+                    } else if (selectedHeroId === '4') {
+                        document.getElementById('im').src = "./img/chempion.png";
+                    } else if (selectedHeroId === '5') {
+                        document.getElementById('im').src = "./img/hog.png";
+                    } else if (selectedHeroId === '6') {
+                        document.getElementById('im').src = "./img/king.png";
+                    } else if (selectedHeroId === '7') {
+                        document.getElementById('im').src = "./img/peka.png";
+                    } else if (selectedHeroId === '8') {
+                        document.getElementById('im').src = "./img/plazma.png";
+                    } else if (selectedHeroId === '9') {
+                        document.getElementById('im').src = "./img/valciria.png";
+                    } else if (selectedHeroId === '10') {
+                        document.getElementById('im').src = "./img/varvar.png";
+                    } else if (selectedHeroId === '11') {
+                        document.getElementById('im').src = "./img/vedma.png";
+                    } else if (selectedHeroId === '12') {
+                        document.getElementById('im').src = "./img/velican.png";
+                    } else {
+                        // Если id персонажа не найден, выводим изображение по умолчанию
+                        document.getElementById('im').src = "default.png";
+                    }
                 } else {
-                // Если id персонажа не найден, выводим изображение по умолчанию
-                document.getElementById('im').src = "default.png";
+                    console.error('Ошибка при получении данных героя:', data.message);
                 }
-            } else {
-                console.error('Ошибка при получении данных героя:', data.message);
-            }
             })
             .catch(error => {
                 console.error('Ошибка при выполнении запроса:', error);
@@ -541,7 +611,6 @@
                 console.error('Ошибка:', error);
                 document.getElementById('userId').textContent = 'Ошибка при получении ID';
             });
-        
 
 
 
@@ -550,7 +619,8 @@
 
 
 
-            const createButton = document.getElementById('createButton');
+
+        const createButton = document.getElementById('createButton');
 
         createButton.addEventListener('click', async () => {
             const title = document.getElementById('nameAlns').value;
@@ -666,6 +736,8 @@
         setupModal("inventaryModal", "inventaryBtn"); // Инвентарь
         setupModal("shopModal", "shopBtn"); // Лавка
         setupModal("zamokModal", "zamokBtn"); // Лавка
+        setupModal("zadachiModal", "zadachi_1Btn"); // Лавка
+
 
 
         // Обработчик для кнопки "Создать альянс"
@@ -732,6 +804,24 @@
         
 
     </script>
+
+
+
+    <script>
+        document.getElementById("finishButton").addEventListener("click", function () {
+            const item = document.getElementById("zadachi_1Btn"); // Получаем элемент с нужным ID
+            item.style.backgroundColor = "#a5d6a7"; // Изменяем цвет фона на мягкий зелёный
+            item.style.color = "white"; // Изменяем цвет текста на белый для контраста
+
+            // Закрываем модальное окно
+            const modal = document.getElementById("zadachiModal");
+            modal.style.display = "none"; // Скрываем окно
+        });
+    </script>
+
+
+
+
 
 
 </body>
