@@ -95,7 +95,7 @@
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: center;
+    align-items: center; /* Сохраняем элементы по центру */
     text-align: center;
     color: white;
     font-size: 1.5rem;
@@ -105,6 +105,14 @@
     padding: 20px;
     overflow-y: auto;
 }
+
+#AdminZadachi {
+    margin-top: 20px;
+    margin-left: auto; /* Сдвигаем label вправо */
+    text-align: left; /* Выравнивание текста влево для label */
+    color: white; /* Убедитесь, что цвет текста соответствует фону */
+}
+
 
 
 .window-for-text {
@@ -197,3 +205,5 @@
     background: #555;
     /* Цвет ползунка при наведении */
 }
+
+
