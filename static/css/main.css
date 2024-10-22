@@ -219,64 +219,7 @@ label {
     font-size: 16px;
 }
 
-.content {
-    padding: 20px;
-}
 
-.content .columns {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.content .columns .column {
-    background-color: white;
-    border-radius: 5px;
-    padding: 15px;
-    width: calc(30% - 40px);
-    margin: 20px;
-}
-
-.content .columns .column h3 {
-    margin-top: 0;
-}
-
-.content .columns .column .add-item {
-    background-color: #e0e0e0;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-bottom: 20px;
-}
-
-.content .columns .column .item {
-    background-color: #f5f5f5;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.content .columns .column .item .text {
-    flex-grow: 1;
-}
-
-.content .columns .column .item .actions {
-    display: flex;
-    align-items: center;
-}
-
-.content .columns .column .item .actions .icon {
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-.content .columns .column .item .actions .icon img {
-    height: 20px;
-}
 
 .img {
     position: absolute;

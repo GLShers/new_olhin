@@ -1,72 +1,147 @@
+.main-container {
+    display: flex; /* Используем Flexbox для основного контейнера */
+    justify-content: center; /* Центруем блоки */
+    max-width: 1200px; /* Ограничиваем максимальную ширину */
+    margin: 0 auto; /* Центруем по горизонтали */
+}
+
+.content {
+    padding: 20px;
+    overflow: hidden; /* Это может помочь предотвратить перенос */
+    width: 100%; /* Устанавливаем ширину на 100% */
+}
+
+.content .columns {
+    display: flex;
+    justify-content: space-between; /* Распределяем пространство между колонками */
+    flex-wrap: nowrap; /* Устанавливаем nowrap */
+    width: 100%; /* Устанавливаем ширину на 100% */
+}
+
+.content .columns .column {
+    flex: 0 0 calc(33.33% - 30px); /* Увеличьте отступы */
+    border-radius: 5px;
+    padding: 15px;
+    margin: 15px; /* Отступы между колонками */
+    background-color: rgb(255, 255, 255);
+}
+
+.content .columns .column h3 {
+    margin-top: 0;
+}
+
+.content .columns .column .add-item {
+    background-color: #e0e0e0;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 20px;
+}
+.content .columns .column .item,
+.content .columns .column .zadachi_1-item {
+    margin: 15px 0; /* Увеличьте вертикальный отступ между элементами */
+}
+
+
+.content .columns .column .item {
+    background-color: #f5f5f5;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.content .columns .column .item:hover {
+    background-color: #eaeaea; /* Цвет фона при наведении */
+    transform: scale(1.05); /* Увеличение при наведении */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Тень при наведении */
+}
+
+.content .columns .column .item .text {
+    flex-grow: 1;
+}
+
+.content .columns .column .item .actions {
+    display: flex;
+    align-items: center;
+}
+
+.content .columns .column .item .actions .icon {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.content .columns .column .item .actions .icon img {
+    height: 20px;
+}
+
+.column {
+    padding: 20px; /* Внутренний отступ */
+    border-radius: 5px;
+    background-color: #fff; /* Цвет фона для видимости */
+    width: 250px; /* Задайте ширину */
+    height: auto; /* Автоматическая высота */
+    margin: 10px; /* Отступы между колонками */
+}
+
+
+
+
+
+
+
+
+
 /*############################################### 
 ###########--Окошко с задачами--#################
 #################################################*/
 
-.column {
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    max-width: 500px;
-    max-height: 300px;
-    cursor: pointer;
-    /* Указатель, когда наводите на колонку */
-}
 
-.column:hover {
-    transform: scale(1.05);
-    /* Увеличение окна */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    /* Тень */
-}
 
 .zadachi_1 {
     max-height: 250px;
-    /* Максимальная высота для области задач */
     overflow-y: auto;
-    /* Вертикальный скроллинг */
     padding: 10px;
-    /* Отступы для улучшения дизайна */
     border-radius: 8px;
-    /* Закругленные углы */
     background-color: #f9f9f9;
-    /* Светлый фон */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.zadachi_1:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
 /* Для прокрутки добавим стили для скроллбара */
 .zadachi_1::-webkit-scrollbar {
     width: 8px;
-    /* Ширина скроллбара */
 }
 
 .zadachi_1::-webkit-scrollbar-thumb {
     background: #888;
-    /* Цвет ползунка */
     border-radius: 10px;
-    /* Закругление ползунка */
 }
 
 .zadachi_1::-webkit-scrollbar-thumb:hover {
     background: #555;
-    /* Цвет ползунка при наведении */
 }
 
-.item {
-    background-color: #fff;
-    padding: 15px;
-    margin: 10px 0;
+.zadachi_1-item {
+    background-color: #f5f5f5;
+    padding: 10px;
     border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 5px 0;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
-.item:hover {
-    background-color: #eaeaea;
-    transform: scale(1.05);
-    /* Увеличение окна */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    /* Тень */
+.zadachi_1-item:hover {
+    background-color: #eaeaea; /* Цвет фона при наведении */
+    transform: scale(1.05); /* Увеличение при наведении */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Тень при наведении */
 }
+
 
 .text {
     color: #555;
@@ -217,36 +292,19 @@
 
 
 
-
 .svobodnieZadachi {
-    max-height: 250px;
-    /* Максимальная высота для области задач */
+    height: 250px;
     overflow-y: auto;
-    /* Вертикальный скроллинг */
     padding: 10px;
-    /* Отступы для улучшения дизайна */
     border-radius: 8px;
-    /* Закругленные углы */
     background-color: #f9f9f9;
-    /* Светлый фон */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer; /* Указатель на всей области */
 }
 
-/* Для прокрутки добавим стили для скроллбара */
-.svobodnieZadachi::-webkit-scrollbar {
-    width: 8px;
-    /* Ширина скроллбара */
-}
-
-.svobodnieZadachi::-webkit-scrollbar-thumb {
-    background: #888;
-    /* Цвет ползунка */
-    border-radius: 10px;
-    /* Закругление ползунка */
-}
-
-.svobodnieZadachi::-webkit-scrollbar-thumb:hover {
-    background: #555;
-    /* Цвет ползунка при наведении */
+.svobodnieZadachi:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Тень при наведении */
 }
 
 .item {
@@ -255,18 +313,11 @@
     margin: 10px 0;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.item:hover {
-    background-color: #eaeaea;
-    transform: scale(1.05);
-    /* Увеличение окна */
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-    /* Тень */
-}
+
 
 .text {
     color: #555;
@@ -274,6 +325,8 @@
     font-size: 16px;
     text-align: center;
 }
+
+
 
 
 
@@ -399,6 +452,69 @@
 }
 
 .window-for-text::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* Цвет ползунка при наведении */
+}
+
+
+
+
+
+
+
+
+
+
+
+.present {
+    display: flex; /* Включаем flexbox */
+    flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
+    justify-content: center; /* Центрируем элементы по горизонтали */
+    gap: 10px; /* Пробел между элементами */
+    max-width: 340px; /* Фиксированная ширина контейнера */
+    max-height: 250px; /* Фиксированная высота контейнера */
+    overflow: auto; /* Добавляем прокрутку */
+    padding: 10px; /* Внутренние отступы контейнера */
+    border-radius: 8px; /* Скругленные углы рамки */
+    
+    
+}
+
+.present-button {
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.2); /* Полупрозрачный фон */
+    border: 2px solid rgb(219, 198, 251); /* Цвет рамки */
+    border-radius: 8px; /* Скругленные углы */
+    cursor: pointer; /* Курсор при наведении */
+    transition: background-color 0.3s, transform 0.3s; /* Плавный переход */
+    text-align: center; /* Центрирование текста */
+    padding: 10px; /* Внутренние отступы */
+    height: 70px; /* Фиксированная высота кнопки */
+    width: 70px; /* Фиксированная ширина кнопки */
+    display: flex; /* Flexbox для вертикального выравнивания */
+    flex-direction: column; /* Вертикальное направление */
+    justify-content: space-between; /* Пространство между элементами */
+    align-items: center; /* Центрирование элементов по горизонтали */
+    overflow: hidden; /* Скрытие части изображения */
+    font-family: 'Arial', sans-serif; /* Шрифт */
+    font-size: 18px; /* Увеличенный размер шрифта */
+    color: #fff; /* Белый цвет текста для лучшего контраста */
+}
+
+
+.present::-webkit-scrollbar {
+    width: 8px;
+    /* Ширина скроллбара */
+}
+
+.present::-webkit-scrollbar-thumb {
+    background: #888;
+    /* Цвет ползунка */
+    border-radius: 10px;
+    /* Закругление ползунка */
+}
+
+.present::-webkit-scrollbar-thumb:hover {
     background: #555;
     /* Цвет ползунка при наведении */
 }
