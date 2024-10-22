@@ -106,6 +106,7 @@ router.post('/create_allyans', async (req, res) => {
   
 });
 
+
 router.get('/get_data_allyans', async (req, res) => {
   const data = await regService.get_data_allyans(req);
   if (data) {
@@ -113,6 +114,12 @@ router.get('/get_data_allyans', async (req, res) => {
   } else {
     res.status(500).json({ error: 'Ошибка получения данных альянса' });
   }
+  
+});
+
+router.get('/join_allyans', async (req, res) => {
+  await regService.join_allyans(req);
+  
   
 });
 

@@ -314,12 +314,7 @@
 
             </div>
         </div>
-        <div class="cta">
-            <p>Побеждайте монстров с друзьями</p>
-            <p>Создайте свою собственную команду или присоединитесь к уже существующей для выполнения заданий и
-                повышения мотивации!</p>
-            <button>Начать</button>
-        </div>
+       
     </div>
 
 
@@ -882,14 +877,14 @@
 
                 // Выводим данные в консоль для проверки
                 console.log('Данные альянса:', data);
-                const zamok = document.getElementById('zamokTitle');
+                const zamok =document.getElementById('zamokTitle');
                 const allianceTitleElement = document.getElementById('allianceTitle');
                 const alnsModal = document.getElementById('alns');
 
                 if (data.title) {
                     // Если title существует, показываем только заголовок
                     allianceTitleElement.textContent = data.title;
-                    zamok.textContent = data.title;
+                    zamok.textContent=data.title;
                     // Удаляем (или скрываем) остальные элементы в модальном окне
                     const elementsToHide = alnsModal.querySelectorAll('.search-user, hr, .main-alns');
                     elementsToHide.forEach(el => el.style.display = 'none');
@@ -909,6 +904,7 @@
 
 
         // Вызов функции для загрузки данных при открытии страницы или модального окна
+// Вызов функции для загрузки данных при открытии страницы или модального окна
         getAllianceData();
 
 
@@ -1012,6 +1008,7 @@
 
 
 
+        
 
     </script>
 

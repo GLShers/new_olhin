@@ -108,18 +108,20 @@ class Register {
     return null;
     }
   }
-async create_allyans(req,res) {            
-  const { id, title } = req.body;
-  const query = `INSERT INTO public.allyans (id,title) VALUES ($1,$2);`
-  const values = [id,title];
-  const  result = await db.query(query,values);
-  const query_two=`UPDATE public.users SET allyans=$1 WHERE id=$2;`
-  const values_two=[id,req.session.userId]
-  const  result_two = await db.query(query_two,values_two);
-  const ress  = result[0];
-    
-
-  }
+  async create_allyans(req,res) {
+    const { id, title } = req.body;
+    const query = `INSERT INTO public.allyans (id,title) VALUES ($1,$2);`
+    const values = [id,title];
+    const  result = await db.query(query,values);
+    const query_two=`UPDATE public.users SET allyans=$1 WHERE id=$2;`
+    const values_two=[id,req.session.userId[0]]
+    const  result_two = await db.query(query_two,values_two);
+    const ress  = result[0];
+    const query_three=`UPDATE public.users SET admin_allyans=true WHERE id=$1;`
+    const values_three=req.session.userId[0]
+    const  result_three = await db.query(query_three,values_three);
+  
+    }
   async get_data_allyans(req,res) {     //Извлекать данные из анльянса пользователя
     try {
       console.log('Начало выполнения запроса');
@@ -144,7 +146,22 @@ async create_allyans(req,res) {
     return null;
     }
   }
+  async join_allyans(req,res) {
+    //const { id} = req.body;
+    const query_two=`UPDATE public.users SET allyans=33333333 WHERE id=$1;`
+    console.log(req.session.userId)
+    const values_two=[req.session.userId[0]]
+    const  result_two = await db.query(query_two,values_two);
+  
+    }
+  
+  
+
+
+ 
+  
 }
+
   
   
 
